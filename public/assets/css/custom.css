@@ -1,0 +1,37 @@
+body {
+    padding-top: 80px;
+}
+
+.pad5 {
+    padding: 5px;
+}
+
+.margin5 {
+    margin: 5px;
+}
+
+.alert-fill {
+    display: block;
+    width: 100%;
+}
+
+/** this overrides bootstraps margin-top:-10px on a lot of elements which allows use to center text in a div row **/
+.valign-row-text {
+    margin-top: 10px;
+}
+
+/** log out button in header **/
+#logout {
+    margin: 10px auto;
+    color: #f7f9f6;
+}
+
+.color1 {
+    background-color: #2c3e50;
+    color: #f7f9f6;
+}
+
+.color2 {
+    background-color: #ECF0F1;
+    color: #000000;
+}
