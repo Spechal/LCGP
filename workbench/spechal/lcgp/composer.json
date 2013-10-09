@@ -1,0 +1,23 @@
+{
+    "name": "spechal/lcgp",
+    "description": "",
+    "authors": [
+        {
+            "name": "Travis Crowder",
+            "email": "travis.crowder@spechal.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Spechal\\Lcgp": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
