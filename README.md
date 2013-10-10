@@ -10,13 +10,13 @@ Refactor the code into a true package
 Fix routing and offset issues with some plugins
 Add groupings and categories back from the CGP v3 fork at https://github.com/Spechal/CGP
 Finish porting plugins
-- [X] apache
+- [x] apache
 - [ ] apcups
 - [ ] battery
 - [ ] bind
 - [ ] conntrack
 - [ ] contextswitch
-- [X] cpu
+- [x] cpu
 - [ ] cpufreq
 - [ ] df
 - [ ] disk
@@ -24,15 +24,15 @@ Finish porting plugins
 - [ ] entropy
 - [ ] filecount
 - [ ] hddtemp
-- [X] interface
+- [x] interface
 - [ ] ip6tables
 - [ ] iptables
 - [ ] irq
 - [ ] libvirt
-- [X] load
+- [x] load
 - [ ] md
 - [ ] memcached
-- [X] memory
+- [x] memory
 - [ ] mysql
 - [ ] netlink
 - [ ] nfs
@@ -50,8 +50,8 @@ Finish porting plugins
 - [ ] tail
 - [ ] tcpconns
 - [ ] thermal
-- [X] uptime
-- [X] users
+- [x] uptime
+- [x] users
 - [ ] varnish
 - [ ] vmem
 - [ ] vserver
