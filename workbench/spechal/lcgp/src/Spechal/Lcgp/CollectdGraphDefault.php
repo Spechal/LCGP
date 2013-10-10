@@ -341,7 +341,7 @@
 
             $c = 0;
             foreach ($sources as $source) {
-                $dsname = $this->_ds_names[$source] != '' ? $this->_ds_names[$source] : $source;
+                $dsname = (!empty($this->_ds_names[$source])) ? $this->_ds_names[$source] : $source;
                 $color = is_array($this->_colors) ? (isset($this->_colors[$source]) ? $this->_colors[$source] : $this->_colors[$c++]) : $this->_colors;
                 $rrdgraph[] = sprintf('"LINE1:avg_%s#%s:%s"', $this->_crc32hex($source), $color, $this->_rrd_escape($dsname));
                 $rrdgraph[] = sprintf('"GPRINT:min_%s:MIN:%s Min,"', $this->_crc32hex($source), $this->_rrd_format);

@@ -19,6 +19,7 @@ class LcgpServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('spechal/lcgp');
+        include(__DIR__ . '/../../routes.php');
 	}
 
 	/**
