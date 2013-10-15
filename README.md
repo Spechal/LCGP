@@ -19,7 +19,7 @@ See https://github.com/pommi/CGP/ for CGP
 - [x] cpu
 - [ ] cpufreq
 - [ ] df
-- [ ] disk
+- [x] disk
 - [ ] dns
 - [ ] entropy
 - [ ] filecount
@@ -27,28 +27,28 @@ See https://github.com/pommi/CGP/ for CGP
 - [x] interface
 - [ ] ip6tables
 - [ ] iptables
-- [ ] irq
+- [x] irq
 - [ ] libvirt
 - [x] load
 - [ ] md
-- [ ] memcached
+- [x] memcached
 - [x] memory
-- [ ] mysql
+- [x] mysql
 - [ ] netlink
 - [ ] nfs
 - [ ] nginx
-- [ ] ntpd
+- [ ] ntpd (busted ... not sure why)
 - [ ] nut
 - [ ] openvpn
 - [ ] ping
 - [ ] postgresql
 - [ ] powerdns
-- [ ] processes
+- [x] processes
 - [ ] sensors
 - [ ] snmp
-- [ ] swap
+- [ ] swap (currently pulls in too many files for the RRDs)
 - [ ] tail
-- [ ] tcpconns
+- [ ] tcpconns (currently causes a routing issue in Laravel)
 - [ ] thermal
 - [x] uptime
 - [x] users

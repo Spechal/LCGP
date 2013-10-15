@@ -15,6 +15,11 @@
 
             $sources = $this->_rrd_sources();
 
+            #echo '<pre>';
+            #print_r($this->_colors);
+            #print_r($sources);
+            #exit;
+
             $raw = null;
             if ($this->_scale)
                 $raw = '_raw';
@@ -48,28 +53,26 @@
 
             $c = 0;
             foreach ($sources as $source) {
-                $tmp = explode('-', $source);
-                if(!empty($tmp[0]) && strlen($tmp[0]) > 1)
-                    $source = $tmp[0];
-                $color = is_array($this->_colors) ? (isset($this->_colors[$source])?$this->_colors[$source]:$this->_colors[$c++]) : $this->_colors;
+                $source = $this->_realSource($source, $this->_colors);
+                #$color = is_array($this->_colors) ? (isset($this->_colors[$source])?$this->_colors[$source]:$this->_colors[$c++]) : $this->_colors;
+                $color = $this->_realColor($source, $this->_colors);
                 $color = $this->_faded_color($color);
                 $rrdgraph[] = sprintf('AREA:area_%s#%s', $this->_crc32hex($source), $color);
             }
 
             $c = 0;
             foreach ($sources as $source) {
-                $tmp = explode('-', $source);
-                if(!empty($tmp[0]) && strlen($tmp[0]) > 1)
-                    $source = $tmp[0];
-                $dsname = $this->_ds_names[$source] != '' ? $this->_ds_names[$source] : $source;
-                $color = is_array($this->_colors) ? (isset($this->_colors[$source])?$this->_colors[$source]:$this->_colors[$c++]) : $this->_colors;
+                $source = $this->_realSource($source, $this->_colors);
+                $dsname =  (!empty($this->_ds_names[$source])) ? $this->_ds_names[$source] : $source;
+                #$color = is_array($this->_colors) ? (isset($this->_colors[$source])?$this->_colors[$source]:$this->_colors[$c++]) : $this->_colors;
+                $color = $this->_realColor($source, $this->_colors);
                 $rrdgraph[] = sprintf('"LINE1:area_%s#%s:%s"', $this->_crc32hex($source), $color, $this->_rrd_escape($dsname));
                 $rrdgraph[] = sprintf('"GPRINT:min_%s:MIN:%s Min,"', $this->_crc32hex($source), $this->_rrd_format);
                 $rrdgraph[] = sprintf('"GPRINT:avg_%s:AVERAGE:%s Avg,"', $this->_crc32hex($source), $this->_rrd_format);
                 $rrdgraph[] = sprintf('"GPRINT:max_%s:MAX:%s Max,"', $this->_crc32hex($source), $this->_rrd_format);
                 $rrdgraph[] = sprintf('"GPRINT:avg_%s:LAST:%s Last\\l"', $this->_crc32hex($source), $this->_rrd_format);
             }
-            
+
             return $rrdgraph;
         }
 

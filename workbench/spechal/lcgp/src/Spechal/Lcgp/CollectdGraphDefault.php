@@ -11,7 +11,7 @@
     class CollectdGraphDefault {
 
         protected $_datadir, $_rrdtool, $_rrdtool_opts, $_cache, $_args, $_seconds = NULL;
-        protected $_order, $_ds_names, $_colors, $_rrd_title, $_rrd_vertical, $_rrd_format = NULL;
+        protected $_order, $_ds_names, $_rrd_title, $_rrd_vertical, $_rrd_format = NULL;
         protected $_graph_type, $_negative_io, $_graph_smooth, $_files, $_type_instances, $_identifiers = NULL;
         protected $_scale = 1;
         protected $_data_sources = array('value');
@@ -19,6 +19,8 @@
         protected $_height = 175;
 
         protected $_config = NULL;
+        #protected $_colors = array('value' => '0000FF');
+        protected $_colors = array();
 
         public function __construct($config){
             // setup config stuff
@@ -95,7 +97,7 @@
                 foreach(array(4,2,0) as $j) {
                     $hex .= sprintf('%02x', $q[(floor($h)+$j)%6] * 255);
                 }
-                $this->colors[$ds] = $hex;
+                $this->_colors[$ds] = $hex;
                 $c++;
             }
         }
@@ -173,7 +175,7 @@
                 $name = str_replace('%2F', '/', rawurlencode($name));
                 // change slashes into pipes
                 $name = str_replace('/', '%7C', $name);
-                return $this->_rrd_escape('/rrd/file/'.$name, $png);
+                return $this->_rrd_escape('/collectd/rrd/file/'.$name, $png);
             } else {
                 $name = str_replace(' ', '\ ', $name);
                 return $this->_rrd_escape($name, $png);
@@ -359,7 +361,7 @@
          * @return string
          */
         public function rrd_graph($png = FALSE){
-            if(empty($this->_colors))
+            if(empty($this->_colors) || count($this->_colors) == 1)
                 $this->_rainbow_colors();
 
             $data = $this->_rrd_gen_graph($png);
@@ -434,6 +436,34 @@
                 return $_GET[$value];
             else
                 return $default;
+        }
+
+        protected function _realSource($source, $colors){
+            if(!is_array($this->_colors))
+                return FALSE;
+
+            if(in_array($source, array_keys($colors)))
+                return $source;
+
+            $tmp = explode('-', $source);
+            if(!isset($tmp[1]))
+                if(!empty($colors['value']))
+                    return $source;
+
+            if(!empty($tmp[0]) && strlen($tmp[0]) > 1)
+                $source = $tmp[0];
+            // try to get the color from $tmp[0] ... if not, try $tmp[1] ... if not, fall back
+            if(!in_array($source, array_keys($colors)) && in_array($tmp[1], array_keys($colors)))
+                $source = $tmp[1];
+
+            return (!empty($source)) ? $source : FALSE;
+        }
+
+        protected function _realColor($source, $colors){
+            if(!in_array($source, $colors) && isset($colors['value']))
+                return $colors['value'];
+            else
+                return $colors[$source];
         }
 
     }

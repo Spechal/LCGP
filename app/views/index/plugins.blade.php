@@ -5,10 +5,11 @@
 @stop
 
 @section('content')
+<a href="/">Home</a>
 <h4>Plugins for {{ $host }}</h4>
 <ul>
 @foreach($plugins as $plugin)
-    <li><a href="/graph/{{ $host }}/{{ $plugin }}">{{ $plugin }}</a></li>
+    <li><a href="/collectd/graph/{{ $host }}/{{ $plugin }}">{{ $plugin }}</a></li>
 @endforeach
 </ul>
 @stop

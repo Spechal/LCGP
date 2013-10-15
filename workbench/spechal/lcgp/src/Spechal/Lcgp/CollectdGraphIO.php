@@ -49,19 +49,21 @@
 
             $i = 0;
             foreach($sources as $source) {
+                $source = $this->_realSource($source, $this->_colors);
                 $rrdgraph[] = sprintf('AREA:avg_%s%s#%s', $this->_crc32hex($source), $i == 1 ? '_neg' : '', $this->_faded_color($this->_colors[$source]));
                 $i++;
             }
 
             $rrdgraph[] = sprintf('AREA:overlap#%s',
                 $this->_faded_color(
-                    $this->_faded_color($this->_colors[$sources[0]]),
-                    $this->_faded_color($this->_colors[$sources[1]])
+                    $this->_faded_color($this->_colors[$this->_realSource($sources[0], $this->_colors)]),
+                    $this->_faded_color($this->_colors[$this->_realSource($sources[1], $this->_colors)])
                 )
             );
 
             $i = 0;
             foreach($sources as $source) {
+                $source = $this->_realSource($source, $this->_colors);
                 $dsname = $this->_ds_names[$source] != '' ? $this->_ds_names[$source] : $source;
                 $rrdgraph[] = sprintf('"LINE1:avg_%s%s#%s:%s"', $this->_crc32hex($source), $i == 1 ? '_neg' : '', $this->_colors[$source], $this->_rrd_escape($dsname));
                 $rrdgraph[] = sprintf('"GPRINT:min_%s:MIN:%s Min,"', $this->_crc32hex($source), $this->_rrd_format);
