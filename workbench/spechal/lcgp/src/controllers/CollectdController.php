@@ -23,6 +23,7 @@
             $graphs = array();
             foreach($data as $d){
                 $plugin = $d['plugin'];
+                $_GET['category'] = (isset($d['category'])) ? $d['category'] : NULL;
                 $_GET['plugin_instance'] = (isset($d['plugin_instance'])) ? $d['plugin_instance'] : NULL;
                 $_GET['type'] = (isset($d['type'])) ? $d['type'] : NULL;
                 $_GET['type_instance'] = (isset($d['type_instance'])) ? $d['type_instance'] : NULL;

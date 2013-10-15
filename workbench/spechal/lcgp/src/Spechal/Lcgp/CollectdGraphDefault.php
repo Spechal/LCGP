@@ -197,7 +197,7 @@
                 strlen($this->_args['type_instance']) ? '-' : '', $this->_args['type_instance']
             );
 
-            $wildcard = strlen($this->_args['type_instance']) ? '.' : '*';
+            $wildcard = strlen($this->_args['type_instance']) ? '.' : '[-.]*';
             $files = glob($this->_datadir .'/'. $identifier . $wildcard . 'rrd');
 
             return $files;

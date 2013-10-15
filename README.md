@@ -18,7 +18,7 @@ See https://github.com/pommi/CGP/ for CGP
 - [ ] contextswitch
 - [x] cpu
 - [ ] cpufreq
-- [ ] df
+- [ ] df (currently shows a graph for each data source instead of merging them)
 - [x] disk
 - [ ] dns
 - [ ] entropy
@@ -35,7 +35,7 @@ See https://github.com/pommi/CGP/ for CGP
 - [x] memory
 - [x] mysql
 - [ ] netlink
-- [ ] nfs
+- [x] nfs
 - [ ] nginx
 - [ ] ntpd (busted ... not sure why)
 - [ ] nut
@@ -52,7 +52,7 @@ See https://github.com/pommi/CGP/ for CGP
 - [ ] thermal
 - [x] uptime
 - [x] users
-- [ ] varnish
+- [x] varnish
 - [ ] vmem
 - [ ] vserver
 - [ ] wireless

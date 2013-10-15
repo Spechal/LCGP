@@ -86,7 +86,6 @@ class Collectd {
     public function pluginDetail($host, $plugin, $detail){
         $data = new CollectdPlugin($this->_rrd_dir, $host);
         $data = $data->details($plugin, $detail);
-
         return $data;
     }
 
