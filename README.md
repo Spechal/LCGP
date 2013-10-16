@@ -15,13 +15,13 @@ See https://github.com/pommi/CGP/ for CGP
 - [ ] battery
 - [ ] bind
 - [ ] conntrack
-- [ ] contextswitch
+- [x] contextswitch
 - [x] cpu
 - [ ] cpufreq
 - [ ] df (currently shows a graph for each data source instead of merging them)
 - [x] disk
 - [ ] dns
-- [ ] entropy
+- [x] entropy
 - [ ] filecount
 - [ ] hddtemp
 - [x] interface
@@ -37,7 +37,7 @@ See https://github.com/pommi/CGP/ for CGP
 - [ ] netlink
 - [x] nfs
 - [ ] nginx
-- [ ] ntpd (busted ... not sure why)
+- [x] ntpd
 - [ ] nut
 - [ ] openvpn
 - [ ] ping
@@ -53,7 +53,7 @@ See https://github.com/pommi/CGP/ for CGP
 - [x] uptime
 - [x] users
 - [x] varnish
-- [ ] vmem
+- [x] vmem
 - [ ] vserver
 - [ ] wireless
 - [ ] zfs_arc
