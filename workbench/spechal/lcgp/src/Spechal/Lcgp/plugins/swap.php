@@ -10,7 +10,7 @@
     switch($_GET['type']){
         case 'swap':
             $obj = new CollectdGraphStacked($config);
-            $obj->setDataSources(array('free', 'cached', 'used'));
+            $obj->setOrder(array('free', 'cached', 'used'));
             $obj->setDataSourceNames(array(
                     'free' => 'Free',
                     'cached' => 'Cached',
@@ -22,7 +22,7 @@
             break;
         case 'swap_io':
             $obj = new CollectdGraphIO($config);
-            $obj->setDataSources(array('out', 'in'));
+            $obj->setOrder(array('out', 'in'));
             $obj->setDataSourceNames(array(
                     'out' => 'Out',
                     'in' => 'In'
