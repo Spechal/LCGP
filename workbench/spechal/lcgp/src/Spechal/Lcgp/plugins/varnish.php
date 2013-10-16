@@ -11,4 +11,4 @@
 
     $obj->setTitle(ucfirst($obj->getArg('plugin_instance')))->setVertical('Hits')->setFormat('%5.1lf%s');
 
-    $graphs[] = $obj->rrd_graph();
+    $graphs[$config['plugin']][] = $obj->rrd_graph();

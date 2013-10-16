@@ -1,15 +1,29 @@
-@extends('layouts.default.main')
+@extends('layouts.default.graph')
 
 @section('title')
 @parent
 @stop
 
 @section('content')
-<a href="/">Home</a>
-<h4>Plugins for {{ $host }}</h4>
-<ul>
-@foreach($plugins as $plugin)
-    <li><a href="/collectd/graph/{{ $host }}/{{ $plugin }}">{{ $plugin }}</a></li>
-@endforeach
-</ul>
+<div>
+    <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li class="active">{{ $host }}</li>
+    </ol>
+</div>
+<div>
+    <ul class="nav nav-pills">
+    @foreach($plugins as $plugin)
+        <li><a href="/collectd/graph/{{ $host }}/{{ $plugin }}">{{ $plugin }}</a></li>
+    @endforeach
+    </ul>
+</div>
+<div class="container">
+    @foreach($plugins as $plugin)
+        <h4>{{ ucfirst($plugin) }} graphs for {{ $host }}</h4>
+        @foreach($graphs[$plugin] as $graph)
+        {{ $graph }}
+        @endforeach
+    @endforeach
+</div>
 @stop

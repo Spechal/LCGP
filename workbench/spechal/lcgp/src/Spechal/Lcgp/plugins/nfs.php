@@ -69,4 +69,4 @@
 
     $obj->setTitle('NFS Operations ('.$obj->getArg('plugin_instance').')')->setVertical('Operations')->setFormat('%5.2lf');
 
-    $graphs[] = $obj->rrd_graph();
+    $graphs[$config['plugin']][] = $obj->rrd_graph();

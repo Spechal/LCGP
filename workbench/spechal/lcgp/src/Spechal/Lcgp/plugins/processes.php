@@ -196,4 +196,4 @@
     }
 
     $obj->setFormat('%5.1lf%s');
-    $graphs[] = $obj->rrd_graph();
+    $graphs[$config['plugin']][] = $obj->rrd_graph();

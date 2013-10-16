@@ -40,4 +40,4 @@
     $obj->addRRDOption('-u 100');
     $obj->setScale(0);
 
-    $graphs[] = $obj->rrd_graph();
+    $graphs[$config['plugin']][] = $obj->rrd_graph();

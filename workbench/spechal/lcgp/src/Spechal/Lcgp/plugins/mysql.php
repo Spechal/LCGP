@@ -124,4 +124,4 @@
             break;
     }
 
-    $graphs[] = $obj->rrd_graph();
+    $graphs[$config['plugin']][] = $obj->rrd_graph();

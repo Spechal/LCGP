@@ -11,11 +11,31 @@
 
         public function getHostPlugins($host){
             $collectd = new Collectd('/opt/rrds');
-            return \View::make('index.plugins')->with(array('host' => $host, 'plugins' => $collectd->plugins($host)));
+            $plugins = $collectd->plugins($host);
+
+            $graphs = array();
+            foreach($plugins as $plugin){
+                $data = $collectd->pluginData($host, $plugin);
+                $data = $collectd->groupPlugins($data);
+                $data = $collectd->sortPlugins($data);
+                foreach($data as $d){
+                    $plugin = $d['plugin'];
+                    $_GET['category'] = (isset($d['category'])) ? $d['category'] : NULL;
+                    $_GET['plugin_instance'] = (isset($d['plugin_instance'])) ? $d['plugin_instance'] : NULL;
+                    $_GET['type'] = (isset($d['type'])) ? $d['type'] : NULL;
+                    $_GET['type_instance'] = (isset($d['type_instance'])) ? $d['type_instance'] : NULL;
+
+                    // this needs refactored ... can't have this hard set to a directory
+                    include('/Users/travis.crowder/Dropbox/repos/git/LCGP/workbench/spechal/lcgp/src/Spechal/Lcgp/plugins/'.$plugin.'.php');
+                }
+            }
+
+            return \View::make('index.plugins')->with(array('host' => $host, 'plugins' => $plugins, 'graphs' => $graphs));
         }
 
         public function graph($host, $plugin){
             $collectd = new Collectd('/opt/rrds');
+            $plugins = $collectd->plugins($host);
             $data = $collectd->pluginData($host, $plugin);
             $data = $collectd->groupPlugins($data);
             $data = $collectd->sortPlugins($data);
@@ -33,7 +53,7 @@
             }
 
             // $graph comes from the include
-            return \View::make('index.graph')->with('graphs', $graphs);
+            return \View::make('index.graph')->with(array('host' => $host, 'plugins' => $plugins, 'plugin' => $plugin, 'graphs' => $graphs));
         }
 
         public function rrd($file){

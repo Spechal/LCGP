@@ -20,4 +20,4 @@
 
     $obj->setTitle('Load')->setVertical('System Load')->setFormat('%.2lf');
 
-    $graphs[] = $obj->rrd_graph();
+    $graphs[$config['plugin']][] = $obj->rrd_graph();

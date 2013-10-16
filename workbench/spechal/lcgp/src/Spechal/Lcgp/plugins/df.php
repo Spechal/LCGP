@@ -22,4 +22,4 @@
 
     $obj->setTitle('Free space ('.$obj->getArg('plugin_instance').')')->setVertical('Bytes')->setFormat('%5.1lf%sB');
 
-    $graphs[] = $obj->rrd_graph();
+    $graphs[$config['plugin']][] = $obj->rrd_graph();

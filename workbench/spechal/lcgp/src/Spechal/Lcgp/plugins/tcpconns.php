@@ -10,6 +10,8 @@
 
     $obj = new CollectdGraphStacked($config);
 
-    $obj->setTitle('TCP Connections ('.$this->getArg('plugin_instance').')')->setVertical('#')->setFormat('%5.1lf');
+    $obj->setTitle('TCP Connections ('.$obj->getArg('plugin_instance').')');
+    $obj->setVertical('#');
+    $obj->setFormat('%5.1lf');
 
-    $graphs[] = $obj->rrd_graph();
+    $graphs[$config['plugin']][] = $obj->rrd_graph();
