@@ -5,3 +5,5 @@
     Route::get('/collectd/graph/{host}/{plugin}', 'Spechal\Lcgp\CollectdController@graph');
 
     Route::get('/collectd/rrd/file/{file}', 'Spechal\Lcgp\CollectdController@rrd');
+
+    Route::get('/collectd/png/{host}/{plugin}', 'Spechal\Lcgp\CollectdController@png');

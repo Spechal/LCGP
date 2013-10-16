@@ -74,11 +74,28 @@
         /**
          * PNG support is busted
          */
-        public function png(){
+        public function png($host, $plugin){
+            $collectd = new Collectd('/opt/rrds');
+            $data = $collectd->pluginData($host, $plugin);
+            $d = $data[0];
             #header("Expires: " . date(DATE_RFC822,strtotime($this->cache." seconds")));
             header("content-type: image/png");
-            $graphdata = implode(' ', $graphdata);
-            echo `$graphdata`;
+            #$_GET['host'] = (isset($_GET['host'])) ? $_GET['host'] : NULL;
+            #$_GET['plugin'] = (isset($_GET['plugin'])) ? $_GET['plugin'] : NULL;
+            $plugin = $d['plugin'];
+            $_GET['category'] = (isset($d['category'])) ? $d['category'] : NULL;
+            $_GET['plugin_instance'] = (isset($d['plugin_instance'])) ? $d['plugin_instance'] : NULL;
+            $_GET['type'] = (isset($d['type'])) ? $d['type'] : NULL;
+            $_GET['type_instance'] = (isset($d['type_instance'])) ? $d['type_instance'] : NULL;
+
+            // this needs refactored ... can't have this hard set to a directory
+            #$host = $_GET['host'];
+            #$plugin = $_GET['plugin'];
+            include('/Users/travis.crowder/Dropbox/repos/git/LCGP/workbench/spechal/lcgp/src/Spechal/Lcgp/plugins/'.$plugin.'.php');
+
+            $command = (string)$graphs[$plugin][0];
+
+            echo `$command`;
         }
 
         public function missingMethod($params){

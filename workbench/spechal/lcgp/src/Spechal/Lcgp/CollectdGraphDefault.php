@@ -18,6 +18,8 @@
         protected $_width = 400;
         protected $_height = 175;
 
+        protected $_png = FALSE;
+
         protected $_config = NULL;
         #protected $_colors = array('value' => '0000FF');
         protected $_colors = array();
@@ -36,6 +38,9 @@
             $this->_graph_type = $config['graph_type'];
             $this->_negative_io = $config['negative_io'];
             $this->_graph_smooth = $config['graph_smooth'];
+
+            if(isset($config['png']) && $config['png'] == TRUE)
+                $this->_png = TRUE;
 
             // this replaces Type_Default->parse_get() in CGP v4
             $this->_args = array(
@@ -155,8 +160,8 @@
          * @param $value
          * @return mixed
          */
-        protected function _rrd_escape($value, $png = FALSE){
-            if(!$png)
+        protected function _rrd_escape($value){
+            if(!$this->_png)
                 return str_replace(':', '\:', $value);
             else
                 return str_replace(':', '\\\:', $value);
@@ -168,17 +173,17 @@
          * @param $name
          * @return mixed
          */
-        protected function _parse_filename($name, $png = FALSE){
-            if(!$png){
+        protected function _parse_filename($name){
+            if(!$this->_png){
                 $name = str_replace($this->_datadir . '/', '', $name);
                 # rawurlencode all but /
                 $name = str_replace('%2F', '/', rawurlencode($name));
                 // change slashes into pipes
                 $name = str_replace('/', '%7C', $name);
-                return $this->_rrd_escape('/collectd/rrd/file/'.$name, $png);
+                return $this->_rrd_escape('/collectd/rrd/file/'.$name, $this->_png);
             } else {
                 $name = str_replace(' ', '\ ', $name);
-                return $this->_rrd_escape($name, $png);
+                return $this->_rrd_escape($name, $this->_png);
             }
         }
 
@@ -208,10 +213,10 @@
          *
          * @return array
          */
-        protected function _rrd_options($png = FALSE){
+        protected function _rrd_options(){
             $rrdgraph = array();
 
-            if($png){
+            if($this->_png){
                 $rrdgraph[] = $this->_rrdtool;
                 $rrdgraph[] = 'graph - -a PNG';
             }
@@ -300,8 +305,8 @@
                 $this->_ds_names[$key] = sprintf($format, $value);
         }
 
-        protected function _rrd_gen_graph($png = FALSE){
-            $rrdgraph = $this->_rrd_options($png);
+        protected function _rrd_gen_graph(){
+            $rrdgraph = $this->_rrd_options();
 
             $sources = $this->_rrd_sources();
 
@@ -313,9 +318,9 @@
             $i=0;
             foreach ($this->_type_instances as $tinstance) {
                 foreach ($this->_data_sources as $ds) {
-                    $rrdgraph[] = sprintf('DEF:min_%s%s=%s:%s:MIN', $this->_crc32hex($sources[$i]), $raw, $this->_parse_filename($this->_files[$tinstance], $png), $ds);
-                    $rrdgraph[] = sprintf('DEF:avg_%s%s=%s:%s:AVERAGE', $this->_crc32hex($sources[$i]), $raw, $this->_parse_filename($this->_files[$tinstance], $png), $ds);
-                    $rrdgraph[] = sprintf('DEF:max_%s%s=%s:%s:MAX', $this->_crc32hex($sources[$i]), $raw, $this->_parse_filename($this->_files[$tinstance], $png), $ds);
+                    $rrdgraph[] = sprintf('DEF:min_%s%s=%s:%s:MIN', $this->_crc32hex($sources[$i]), $raw, $this->_parse_filename($this->_files[$tinstance]), $ds);
+                    $rrdgraph[] = sprintf('DEF:avg_%s%s=%s:%s:AVERAGE', $this->_crc32hex($sources[$i]), $raw, $this->_parse_filename($this->_files[$tinstance]), $ds);
+                    $rrdgraph[] = sprintf('DEF:max_%s%s=%s:%s:MAX', $this->_crc32hex($sources[$i]), $raw, $this->_parse_filename($this->_files[$tinstance]), $ds);
                     $i++;
                 }
             }
@@ -360,14 +365,14 @@
          *
          * @return string
          */
-        public function rrd_graph($png = FALSE){
+        public function rrd_graph(){
             if(empty($this->_colors) || count($this->_colors) == 1)
                 $this->_rainbow_colors();
 
-            $data = $this->_rrd_gen_graph($png);
+            $data = $this->_rrd_gen_graph($this->_png);
 
             $return = NULL;
-            if(!$png){
+            if(!$this->_png){
                 $return .= '<canvas id="'.sha1(serialize($data)).'" class="rrd">';
                 foreach($data as $value)
                     $return .= "$value ";
