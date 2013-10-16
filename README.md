@@ -46,9 +46,9 @@ See https://github.com/pommi/CGP/ for CGP
 - [x] processes
 - [ ] sensors
 - [ ] snmp
-- [ ] swap (currently pulls in too many files for the RRDs)
+- [x] swap
 - [ ] tail
-- [ ] tcpconns (currently causes a routing issue in Laravel)
+- [x] tcpconns
 - [ ] thermal
 - [x] uptime
 - [x] users
