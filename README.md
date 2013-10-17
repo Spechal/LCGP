@@ -6,8 +6,7 @@ See https://github.com/pommi/CGP/ for CGP
 
 ### To Do
 
-- Refactor the code into a true package
-- Fix routing and offset issues with some plugins
+- Verify code is an acceptable package
 - Add groupings and categories back from the CGP v3 fork at https://github.com/Spechal/CGP
 - Finish porting plugins
 - [x] apache
