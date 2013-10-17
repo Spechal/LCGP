@@ -378,7 +378,12 @@
                     $return .= "$value ";
                 $return .= '</canvas>';
             } else {
+                header("content-type: image/png");
                 $return = implode(' ', $data);
+
+                echo `$return`;
+
+                return true;
             }
 
             return $return;

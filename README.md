@@ -17,13 +17,13 @@ See https://github.com/pommi/CGP/ for CGP
 - [x] contextswitch
 - [x] cpu
 - [ ] cpufreq
-- [ ] df (currently shows a graph for each data source instead of merging them)
+- [ ] df (currently shows a graph for each data source instead of merging them -- issues with PNG support)
 - [x] disk
 - [ ] dns
 - [x] entropy
 - [ ] filecount
 - [ ] hddtemp
-- [x] interface
+- [ ] interface (issues with PNG support)
 - [ ] ip6tables
 - [ ] iptables
 - [x] irq
