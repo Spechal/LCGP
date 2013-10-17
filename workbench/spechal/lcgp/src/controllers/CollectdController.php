@@ -10,7 +10,7 @@
         }
 
         public function getHostPlugins($host){
-            $collectd = new Collectd('/opt/rrds');
+            $collectd = new Collectd(\Config::get('lcgp::collectd.datadir'));
             $plugins = $collectd->plugins($host);
 
             $graphs = array();
