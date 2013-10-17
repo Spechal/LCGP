@@ -13,7 +13,7 @@
 <body>
 
 <div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
+    <div class="container">a
         <div class="navbar-header">
             <a href="/" class="navbar-brand">Content Management Framework</a>
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">

@@ -1,4 +1,4 @@
-@extends('layouts.default.graph')
+@extends('lcgp::layouts.graph')
 
 @section('title')
 @parent

@@ -6,7 +6,7 @@
 
         public function getIndex(){
             $collectd = new Collectd('/opt/rrds');
-            return \View::make('index.index')->with('hosts', $collectd->hosts());
+            return \View::make('lcgp::index')->with('hosts', $collectd->hosts());
         }
 
         public function getHostPlugins($host){
@@ -30,7 +30,7 @@
                 }
             }
 
-            return \View::make('index.plugins')->with(array('host' => $host, 'plugins' => $plugins, 'graphs' => $graphs));
+            return \View::make('lcgp::plugins')->with(array('host' => $host, 'plugins' => $plugins, 'graphs' => $graphs));
         }
 
         public function graph($host, $plugin){
@@ -53,7 +53,7 @@
             }
 
             // $graph comes from the include
-            return \View::make('index.graph')->with(array('host' => $host, 'plugins' => $plugins, 'plugin' => $plugin, 'graphs' => $graphs));
+            return \View::make('lcgp::graph')->with(array('host' => $host, 'plugins' => $plugins, 'plugin' => $plugin, 'graphs' => $graphs));
         }
 
         public function rrd($file){
@@ -67,7 +67,10 @@
             if(ob_get_length())
                 ob_clean();
             flush();
-            readfile($path . DIRECTORY_SEPARATOR . $file);
+            if(\Cache::has(md5($file)))
+                echo \Cache::get(md5($file));
+            else
+                readfile($path . DIRECTORY_SEPARATOR . $file);
             exit;
         }
 

@@ -1,4 +1,4 @@
-@extends('layouts.default.main')
+@extends('lcgp::layouts.main')
 
 @section('title')
 @parent
