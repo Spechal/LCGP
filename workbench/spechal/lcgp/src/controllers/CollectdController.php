@@ -67,10 +67,7 @@
             if(ob_get_length())
                 ob_clean();
             flush();
-            if(\Cache::has(md5($file)))
-                echo \Cache::get(md5($file));
-            else
-                readfile($path . DIRECTORY_SEPARATOR . $file);
+            readfile($path . DIRECTORY_SEPARATOR . $file);
             exit;
         }
 
