@@ -1,4 +1,4 @@
-@extends('lcgp::layouts.graph')
+@extends('layouts.main')
 
 @section('title')
 @parent
@@ -25,4 +25,18 @@
     {{ $graph }}
     @endforeach
 </div>
+@stop
+
+@section('scripts')
+{{ HTML::script('packages/spechal/lcgp/js/sprintf.js') }}
+{{ HTML::script('packages/spechal/lcgp/js/strftime.js') }}
+{{ HTML::script('packages/spechal/lcgp/js/RrdRpn.js') }}
+{{ HTML::script('packages/spechal/lcgp/js/RrdTime.js') }}
+{{ HTML::script('packages/spechal/lcgp/js/RrdGraph.js') }}
+{{ HTML::script('packages/spechal/lcgp/js/RrdGfxCanvas.js') }}
+{{ HTML::script('packages/spechal/lcgp/js/binaryXHR.js') }}
+{{ HTML::script('packages/spechal/lcgp/js/rrdFile.js') }}
+{{ HTML::script('packages/spechal/lcgp/js/RrdDataFile.js') }}
+{{ HTML::script('packages/spechal/lcgp/js/RrdCmdLine.js') }}
+{{ HTML::script('packages/spechal/lcgp/js/CGP.js') }}
 @stop
