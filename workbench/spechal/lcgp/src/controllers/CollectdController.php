@@ -25,8 +25,7 @@
                     $_GET['type'] = (isset($d['type'])) ? $d['type'] : NULL;
                     $_GET['type_instance'] = (isset($d['type_instance'])) ? $d['type_instance'] : NULL;
 
-                    // this needs refactored ... can't have this hard set to a directory
-                    include('/Users/travis.crowder/Dropbox/repos/git/LCGP/workbench/spechal/lcgp/src/Spechal/Lcgp/plugins/'.$plugin.'.php');
+                    include(__DIR__.'/../Spechal/Lcgp/plugins/'.$plugin.'.php');
                 }
             }
 
@@ -48,8 +47,7 @@
                 $_GET['type'] = (isset($d['type'])) ? $d['type'] : NULL;
                 $_GET['type_instance'] = (isset($d['type_instance'])) ? $d['type_instance'] : NULL;
 
-                // this needs refactored ... can't have this hard set to a directory
-                include('/Users/travis.crowder/Dropbox/repos/git/LCGP/workbench/spechal/lcgp/src/Spechal/Lcgp/plugins/'.$plugin.'.php');
+                include(__DIR__.'/../Spechal/Lcgp/plugins/'.$plugin.'.php');
             }
 
             // $graph comes from the include
@@ -72,7 +70,10 @@
         }
 
         /**
-         * PNG support is busted
+         * PNG support is busted and coded wrong
+         * Needs refactored
+         * -- this part outputs the image
+         * -- need another part to output the img tags
          */
         public function png($host, $plugin){
             $collectd = new Collectd('/opt/rrds');
@@ -88,11 +89,11 @@
             $_GET['type'] = (isset($d['type'])) ? $d['type'] : NULL;
             $_GET['type_instance'] = (isset($d['type_instance'])) ? $d['type_instance'] : NULL;
 
-            // this needs refactored ... can't have this hard set to a directory
             #$host = $_GET['host'];
             #$plugin = $_GET['plugin'];
-            include('/Users/travis.crowder/Dropbox/repos/git/LCGP/workbench/spechal/lcgp/src/Spechal/Lcgp/plugins/'.$plugin.'.php');
+            include(__DIR__.'/../Spechal/Lcgp/plugins/'.$plugin.'.php');
 
+            // this will always output the first graph of the set and is wrong
             $command = (string)$graphs[$plugin][0];
 
             echo `$command`;
