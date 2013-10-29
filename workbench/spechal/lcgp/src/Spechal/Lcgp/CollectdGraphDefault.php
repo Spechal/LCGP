@@ -256,7 +256,7 @@
                 $rrdgraph[] = sprintf('--start %d', $this->_start);
             else
                 $rrdgraph[] = sprintf('--start now');
-
+print_r($rrdgraph);exit;
             return $rrdgraph;
         }
 
