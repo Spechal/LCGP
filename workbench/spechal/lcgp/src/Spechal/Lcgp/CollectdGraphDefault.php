@@ -20,6 +20,9 @@
 
         protected $_png = FALSE;
 
+        protected $_start = NULL;
+        protected $_end = 86400;
+
         protected $_config = NULL;
         #protected $_colors = array('value' => '0000FF');
         protected $_colors = array();
@@ -248,7 +251,7 @@
             else
                 $rrdgraph[] = sprintf('-s');
             $rrdgraph[] = sprintf('e-%d', is_numeric($this->_end) ? $this->_end : 86400);
-print_r($rrdgraph);exit;
+
             return $rrdgraph;
         }
 
