@@ -13,6 +13,9 @@
             $collectd = new Collectd(\Config::get('lcgp::collectd.datadir'));
             $plugins = $collectd->plugins($host);
 
+            $start = isset($_GET['start']) ? $_GET['start'] : NULL;
+            $end = isset($_GET['end']) ? $_GET['end'] : NULL;
+
             $graphs = array();
             foreach($plugins as $plugin){
                 $data = $collectd->pluginData($host, $plugin);
@@ -29,7 +32,7 @@
                     if(!\Config::get('lcgp::collectd.png'))
                         include(__DIR__.'/../Spechal/Lcgp/plugins/'.$plugin.'.php');
                     else
-                        $graphs[$plugin][] = '<img src="/collectd/png/'.$host.'/'.$plugin.'?plugin_instance='.$plugin_instance.'&type='.$type.'&type_instance='.$type_instance.'&category='.$cat.'" />';
+                        $graphs[$plugin][] = '<img src="/collectd/png/'.$host.'/'.$plugin.'?plugin_instance='.$plugin_instance.'&type='.$type.'&type_instance='.$type_instance.'&category='.$cat.'&start='.$start.'&end='.$end.'" />';
                 }
             }
 
@@ -37,6 +40,9 @@
         }
 
         public function graph($host, $plugin){
+            $start = isset($_GET['start']) ? $_GET['start'] : NULL;
+            $end = isset($_GET['end']) ? $_GET['end'] : NULL;
+
             $collectd = new Collectd(\Config::get('lcgp::collectd.datadir'));
             $plugins = $collectd->plugins($host);
             $data = $collectd->pluginData($host, $plugin);
@@ -55,7 +61,7 @@
                 if(!\Config::get('lcgp::collectd.png'))
                     include(__DIR__.'/../Spechal/Lcgp/plugins/'.$plugin.'.php');
                 else
-                    $graphs[$plugin][] = '<img src="/collectd/png/'.$host.'/'.$plugin.'?plugin_instance='.$plugin_instance.'&type='.$type.'&type_instance='.$type_instance.'&category='.$cat.'" />';
+                    $graphs[$plugin][] = '<img src="/collectd/png/'.$host.'/'.$plugin.'?plugin_instance='.$plugin_instance.'&type='.$type.'&type_instance='.$type_instance.'&category='.$cat.'&start='.$start.'&end='.$end.'" />';
             }
 
             // $graph comes from the include
