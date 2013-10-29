@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.0.*",
         "loic-sharma/profiler": "1.1.*",
-        "way/generators": "dev-master"
+        "way/generators": "dev-master",
+        "eternicode/bootstrap-datepicker": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

@@ -1607,56 +1607,6 @@
         ]
     },
     {
-        "name": "jeremeamia/SuperClosure",
-        "version": "1.0.1",
-        "version_normalized": "1.0.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/jeremeamia/super_closure.git",
-            "reference": "d05400085f7d4ae6f20ba30d36550836c0d061e8"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/jeremeamia/super_closure/zipball/d05400085f7d4ae6f20ba30d36550836c0d061e8",
-            "reference": "d05400085f7d4ae6f20ba30d36550836c0d061e8",
-            "shasum": ""
-        },
-        "require": {
-            "nikic/php-parser": "~0.9",
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~3.7"
-        },
-        "time": "2013-10-09 04:20:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Jeremeamia\\SuperClosure": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Jeremy Lindblom"
-            }
-        ],
-        "description": "Doing interesting things with closures like serialization.",
-        "homepage": "https://github.com/jeremeamia/super_closure",
-        "keywords": [
-            "closure",
-            "function",
-            "parser",
-            "serializable",
-            "serialize",
-            "tokenizer"
-        ]
-    },
-    {
         "name": "symfony/translation",
         "version": "2.3.x-dev",
         "version_normalized": "2.3.9999999.9999999-dev",
@@ -2056,6 +2006,315 @@
         "keywords": [
             "framework",
             "laravel"
+        ]
+    },
+    {
+        "name": "kriswallsmith/assetic",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kriswallsmith/assetic.git",
+            "reference": "d4680d449a9da80fb82e17627270c91b93a0d46d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/d4680d449a9da80fb82e17627270c91b93a0d46d",
+            "reference": "d4680d449a9da80fb82e17627270c91b93a0d46d",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.1",
+            "symfony/process": "~2.1"
+        },
+        "require-dev": {
+            "cssmin/cssmin": "*",
+            "joliclic/javascript-packer": "*",
+            "kamicane/packager": "*",
+            "leafo/lessphp": "*",
+            "leafo/scssphp": "*",
+            "leafo/scssphp-compass": "*",
+            "mrclay/minify": "*",
+            "phpunit/phpunit": "~3.7",
+            "ptachoire/cssembed": "*",
+            "twig/twig": "~1.6"
+        },
+        "suggest": {
+            "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler",
+            "leafo/scssphp": "Assetic provides the integration with the scssphp SCSS compiler",
+            "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin",
+            "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
+            "twig/twig": "Assetic provides the integration with the Twig templating engine"
+        },
+        "time": "2013-10-25 15:17:36",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Assetic": "src/"
+            },
+            "files": [
+                "src/functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kris Wallsmith",
+                "email": "kris.wallsmith@gmail.com",
+                "homepage": "http://kriswallsmith.net/"
+            }
+        ],
+        "description": "Asset Management for PHP",
+        "homepage": "https://github.com/kriswallsmith/assetic",
+        "keywords": [
+            "assets",
+            "compression",
+            "minification"
+        ]
+    },
+    {
+        "name": "robloach/component-installer",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/RobLoach/component-installer.git",
+            "reference": "c2e456e7644885f786169e52f590719aa5a8a7d8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/c2e456e7644885f786169e52f590719aa5a8a7d8",
+            "reference": "c2e456e7644885f786169e52f590719aa5a8a7d8",
+            "shasum": ""
+        },
+        "require": {
+            "composer-plugin-api": "1.0.0",
+            "kriswallsmith/assetic": "1.*",
+            "php": ">=5.3.2"
+        },
+        "require-dev": {
+            "composer/composer": "1.*"
+        },
+        "time": "2013-09-08 14:10:00",
+        "type": "composer-installer",
+        "extra": {
+            "class": "ComponentInstaller\\Installer"
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "ComponentInstaller": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Rob Loach",
+                "email": "robloach@gmail.com",
+                "homepage": "http://robloach.net"
+            }
+        ],
+        "description": "Allows installation of Components via Composer."
+    },
+    {
+        "name": "components/jquery",
+        "version": "1.9.x-dev",
+        "version_normalized": "1.9.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/components/jquery.git",
+            "reference": "0e94233e6a4ab678d8fc04312241b2f840717b0c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/components/jquery/zipball/0e94233e6a4ab678d8fc04312241b2f840717b0c",
+            "reference": "0e94233e6a4ab678d8fc04312241b2f840717b0c",
+            "shasum": ""
+        },
+        "require": {
+            "robloach/component-installer": "*"
+        },
+        "time": "2013-07-16 10:41:05",
+        "type": "component",
+        "extra": {
+            "component": {
+                "scripts": [
+                    "jquery.js"
+                ],
+                "files": [
+                    "jquery.min.js",
+                    "jquery-migrate.js",
+                    "jquery-migrate.min.js"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "John Resig",
+                "email": "jeresig@gmail.com",
+                "homepage": "http://ejohn.org/"
+            }
+        ],
+        "description": "jQuery JavaScript Library",
+        "homepage": "http://jquery.com"
+    },
+    {
+        "name": "components/bootstrap",
+        "version": "2.3.x-dev",
+        "version_normalized": "2.3.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/components/bootstrap.git",
+            "reference": "9a190b76332a761bb99cfd2cc681be4fcd009262"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/components/bootstrap/zipball/9a190b76332a761bb99cfd2cc681be4fcd009262",
+            "reference": "9a190b76332a761bb99cfd2cc681be4fcd009262",
+            "shasum": ""
+        },
+        "require": {
+            "components/jquery": "1.9.*"
+        },
+        "suggest": {
+            "components/bootstrap-default": "Provide a theme for Bootstrap as components/bootstrap only provides the CSS as file assets"
+        },
+        "time": "2013-08-13 16:23:55",
+        "type": "component",
+        "extra": {
+            "component": {
+                "scripts": [
+                    "js/bootstrap.js"
+                ],
+                "files": [
+                    "js/bootstrap.min.js",
+                    "css/*.css",
+                    "img/*.png"
+                ],
+                "shim": {
+                    "deps": [
+                        "jquery"
+                    ]
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Twitter, Inc"
+            }
+        ],
+        "description": "Sleek, intuitive, and powerful front-end framework for faster and easier web development.",
+        "homepage": "http://twitter.github.com/bootstrap/",
+        "keywords": [
+            "bootstrap",
+            "css"
+        ]
+    },
+    {
+        "name": "eternicode/bootstrap-datepicker",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/eternicode/bootstrap-datepicker.git",
+            "reference": "5cce696259d9b15e85a07db30264dfb4d2b054e6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/eternicode/bootstrap-datepicker/zipball/5cce696259d9b15e85a07db30264dfb4d2b054e6",
+            "reference": "5cce696259d9b15e85a07db30264dfb4d2b054e6",
+            "shasum": ""
+        },
+        "require": {
+            "components/bootstrap": ">=2.0.4,<3.0",
+            "components/jquery": ">=1.7.1",
+            "robloach/component-installer": "*"
+        },
+        "time": "2013-10-26 02:26:10",
+        "type": "component",
+        "extra": {
+            "component": {
+                "scripts": [
+                    "js/bootstrap-datepicker.js"
+                ],
+                "styles": [
+                    "css/datepicker.css"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/"
+    },
+    {
+        "name": "jeremeamia/SuperClosure",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jeremeamia/super_closure.git",
+            "reference": "d05400085f7d4ae6f20ba30d36550836c0d061e8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/jeremeamia/super_closure/zipball/d05400085f7d4ae6f20ba30d36550836c0d061e8",
+            "reference": "d05400085f7d4ae6f20ba30d36550836c0d061e8",
+            "shasum": ""
+        },
+        "require": {
+            "nikic/php-parser": "~0.9",
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~3.7"
+        },
+        "time": "2013-10-09 04:20:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Jeremeamia\\SuperClosure": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jeremy Lindblom"
+            }
+        ],
+        "description": "Doing interesting things with closures like serialization.",
+        "homepage": "https://github.com/jeremeamia/super_closure",
+        "keywords": [
+            "closure",
+            "function",
+            "parser",
+            "serializable",
+            "serialize",
+            "tokenizer"
         ]
     }
 ]
