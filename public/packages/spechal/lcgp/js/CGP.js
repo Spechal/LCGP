@@ -120,7 +120,7 @@ function drawAll()
 	var a=document.getElementsByClassName('rrd');
 	for (var i=0,l=a.length;i<l;i++)
 	{
-		draw(a[i].getAttribute('id'))
+		setTimeout(function(a, i){ draw(a[i].getAttribute('id')) }(a, i), 50);
 	}
 }
 
