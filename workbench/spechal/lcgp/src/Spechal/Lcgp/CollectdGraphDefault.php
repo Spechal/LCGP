@@ -56,6 +56,9 @@
             );
             $this->_seconds = $this->_get('seconds', 86400);
 
+            $this->_start = $this->_get('start', NULL);
+            $this->_end = $this->_get('end', 86400);
+
             // do other constructor stuff
 
             // build up the type instances and files list
