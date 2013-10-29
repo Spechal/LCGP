@@ -253,7 +253,7 @@
                 $rrdgraph[] = sprintf('-s %d', $this->_start);
             else
                 $rrdgraph[] = sprintf('-s');
-            $rrdgraph[] = sprintf('e-%d', is_numeric($this->_end) ? $this->_end : 86400);
+            $rrdgraph[] = sprintf('e -%d', is_numeric($this->_end) ? $this->_end : 86400);
 
             return $rrdgraph;
         }
