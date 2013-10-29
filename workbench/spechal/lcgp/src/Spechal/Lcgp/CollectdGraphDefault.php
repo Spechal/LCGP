@@ -259,7 +259,7 @@
                 $rrdgraph[] = sprintf('--end %d', $this->_end);
             else
                 $rrdgraph[] = sprintf('--end now');
-print_r($rrdgraph);exit;
+
             return $rrdgraph;
         }
 
