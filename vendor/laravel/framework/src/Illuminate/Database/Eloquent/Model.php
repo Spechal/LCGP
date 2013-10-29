@@ -2,11 +2,12 @@
 
 use Closure;
 use DateTime;
-use Carbon\Carbon;
 use ArrayAccess;
+use Carbon\Carbon;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Contracts\JsonableInterface;
@@ -226,9 +227,9 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 	{
 		if ( ! isset(static::$booted[get_class($this)]))
 		{
-			static::boot();
-
 			static::$booted[get_class($this)] = true;
+
+			static::boot();
 		}
 
 		$this->syncOriginal();
@@ -321,7 +322,7 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 	 */
 	protected function fillableFromArray(array $attributes)
 	{
-		if (count($this->fillable) > 0)
+		if (count($this->fillable) > 0 and ! static::$unguarded)
 		{
 			return array_intersect_key($attributes, array_flip($this->fillable));
 		}
@@ -994,7 +995,7 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 	/**
 	 * Register a model event with the dispatcher.
 	 *
-	 * @param  string   $event
+	 * @param  string  $event
 	 * @param  \Closure|string  $callback
 	 * @return void
 	 */
@@ -1147,6 +1148,7 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 	/**
 	 * Finish processing on a successful save operation.
 	 *
+	 * @param  array  $options
 	 * @return void
 	 */
 	protected function finishSave(array $options)
@@ -1161,10 +1163,10 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 	/**
 	 * Perform a model update operation.
 	 *
-	 * @param  \Illuminate\Database\Eloquent\Builder
+	 * @param  \Illuminate\Database\Eloquent\Builder  $query
 	 * @return bool
 	 */
-	protected function performUpdate($query)
+	protected function performUpdate(Builder $query)
 	{
 		$dirty = $this->getDirty();
 
@@ -1202,10 +1204,10 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 	/**
 	 * Perform a model insert operation.
 	 *
-	 * @param  \Illuminate\Database\Eloquent\Builder
+	 * @param  \Illuminate\Database\Eloquent\Builder  $query
 	 * @return bool
 	 */
-	protected function performInsert($query)
+	protected function performInsert(Builder $query)
 	{
 		if ($this->fireModelEvent('creating') === false) return false;
 
@@ -1252,7 +1254,7 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 	 * @param  array  $attributes
 	 * @return void
 	 */
-	protected function insertAndSetId($query, $attributes)
+	protected function insertAndSetId(Builder $query, $attributes)
 	{
 		$id = $query->insertGetId($attributes, $keyName = $this->getKeyName());
 
@@ -1286,8 +1288,8 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 	/**
 	 * Fire the given event for the model.
 	 *
-	 * @param  string $event
-	 * @param  bool   $halt
+	 * @param  string  $event
+	 * @param  bool    $halt
 	 * @return mixed
 	 */
 	protected function fireModelEvent($event, $halt = true)
@@ -1307,10 +1309,10 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 	/**
 	 * Set the keys for a save update query.
 	 *
-	 * @param  \Illuminate\Database\Eloquent\Builder
+	 * @param  \Illuminate\Database\Eloquent\Builder  $query
 	 * @return \Illuminate\Database\Eloquent\Builder
 	 */
-	protected function setKeysForSaveQuery($query)
+	protected function setKeysForSaveQuery(Builder $query)
 	{
 		$query->where($this->getKeyName(), '=', $this->getKey());
 
@@ -1414,7 +1416,7 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 	/**
 	 * Get a fresh timestamp for the model.
 	 *
-	 * @return Carbon
+	 * @return \Carbon\Carbon
 	 */
 	public function freshTimestamp()
 	{
@@ -1424,7 +1426,7 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 	/**
 	 * Get a fresh timestamp for the model.
 	 *
-	 * @return DateTime
+	 * @return string
 	 */
 	public function freshTimestampString()
 	{
@@ -1464,11 +1466,11 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 		return $this->newQuery(false);
 	}
 
- 	/**
- 	 * Determine if the model instance has been soft-deleted.
- 	 *
- 	 * @return bool
- 	 */
+	/**
+	 * Determine if the model instance has been soft-deleted.
+	 *
+	 * @return bool
+	 */
 	public function trashed()
 	{
 		return $this->softDelete and ! is_null($this->{static::DELETED_AT});
@@ -1521,6 +1523,20 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 	public function newCollection(array $models = array())
 	{
 		return new Collection($models);
+	}
+
+	/**
+	 * Create a new pivot model instance.
+	 *
+	 * @param  \Illuminate\Database\Eloquent\Model  $parent
+	 * @param  array   $attributes
+	 * @param  string  $table
+	 * @param  bool    $exists
+	 * @return \Illuminate\Database\Eloquent\Relation\Pivot
+	 */
+	public function newPivot(Model $parent, array $attributes, $table, $exists)
+	{
+		return new Pivot($parent, $attributes, $table, $exists);
 	}
 
 	/**
@@ -1775,7 +1791,7 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 	{
 		if (static::$unguarded) return true;
 
-		// If the key is in the "fillable" array, we can of course assume tha it is
+		// If the key is in the "fillable" array, we can of course assume that it's
 		// a fillable attribute. Otherwise, we will check the guarded array when
 		// we need to determine if the attribute is black-listed on the model.
 		if (in_array($key, $this->fillable)) return true;
@@ -1957,7 +1973,7 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 
 			// If the relationships snake-casing is enabled, we will snake case this
 			// key so that the relation attribute is snake cased in this returned
-			// array to the developer, making this consisntent with attributes.
+			// array to the developers, making this consistent with attributes.
 			if (static::$snakeAttributes)
 			{
 				$key = snake_case($key);
@@ -2165,7 +2181,7 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 	/**
 	 * Convert a DateTime to a storable string.
 	 *
-	 * @param  DateTime|int  $value
+	 * @param  \DateTime|int  $value
 	 * @return string
 	 */
 	public function fromDateTime($value)
@@ -2193,7 +2209,7 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 		// the field. This conveniently picks up those dates and format correct.
 		elseif (preg_match('/^(\d{4})-(\d{2})-(\d{2})$/', $value))
 		{
-			$value = Carbon::createFromFormat('Y-m-d', $value);
+			$value = Carbon::createFromFormat('Y-m-d', $value)->startOfDay();
 		}
 
 		// If this value is some other type of string, we'll create the DateTime with
@@ -2211,7 +2227,7 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 	 * Return a timestamp as DateTime object.
 	 *
 	 * @param  mixed  $value
-	 * @return DateTime
+	 * @return \Carbon\Carbon
 	 */
 	protected function asDateTime($value)
 	{
@@ -2228,7 +2244,7 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 		// fields on the database, while still supporting Carbonized conversion.
 		elseif (preg_match('/^(\d{4})-(\d{2})-(\d{2})$/', $value))
 		{
-			return Carbon::createFromFormat('Y-m-d', $value);
+			return Carbon::createFromFormat('Y-m-d', $value)->startOfDay();
 		}
 
 		// Finally, we will just assume this date is in the format used by default on

@@ -4,6 +4,7 @@ use Closure;
 use Countable;
 use ArrayAccess;
 use ArrayIterator;
+use CachingIterator;
 use IteratorAggregate;
 use Illuminate\Support\Contracts\JsonableInterface;
 use Illuminate\Support\Contracts\ArrayableInterface;
@@ -188,7 +189,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
 	 */
 	public function map(Closure $callback)
 	{
-		return new static(array_map($callback, $this->items));
+		return new static(array_map($callback, $this->items, array_keys($this->items)));
 	}
 
 	/**
@@ -425,6 +426,16 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
 	public function getIterator()
 	{
 		return new ArrayIterator($this->items);
+	}
+
+	/**
+	 * Get a CachingIterator instance.
+	 *
+	 * @return \CachingIterator
+	 */
+	public function getCachingIterator($flags = CachingIterator::CALL_TOSTRING)
+	{
+		return new CachingIterator($this->getIterator(), $flags);
 	}
 
 	/**

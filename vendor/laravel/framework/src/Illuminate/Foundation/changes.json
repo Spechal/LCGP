@@ -1,6 +1,6 @@
 {
 	"4.0.x": [
-		{"message": "Added implode method to query builder and Colletion class.", "backport": null},
+		{"message": "Added implode method to query builder and Collection class.", "backport": null},
 		{"message": "Fixed bug that caused Model->push method to fail.", "backport": null},
 		{"message": "Make session cookie HttpOnly by default.", "backport": null},
 		{"message": "Added mail.pretend configuration option.", "backport": null},
@@ -45,6 +45,22 @@
 		{"message": "Foreign characters now supported in validation 'alpha' rules.", "backport": null},
 		{"message": "Added 'prepend' method to Filesystem.", "backport": null},
 		{"message": "Added 'reduce' collection to Collection, and 'min' and 'max' to Eloquent Collection.", "backport": null},
-		{"message": "Added 'firstOrCreate' and 'firstOrNew' methods to Eloquent model.", "backport": null}
+		{"message": "Added 'firstOrCreate' and 'firstOrNew' methods to Eloquent model.", "backport": null},
+		{"message": "Added Redirect::away method to always redirect to external URL with no validation.", "backport": null},
+		{"message": "Added 'double' method to Schema builder.", "backport": null},
+		{"message": "Pass keys to 'map' method on Collection.", "backport": null},
+		{"message": "Added 'orderByRaw' method to query builder.", "backport": null},
+		{"message": "Added --bench option to controller:make Artisan command.", "backport": null},
+		{"message": "Moved newPivot method into model for custom Pivot model instances.", "backport": null},
+		{"message": "Added 'shared' method to View to pull a single shared item out.", "backport": null},
+		{"message": "Added assertHasOldInput test assertion.", "backport": null},
+		{"message": "Added slick new 'sometimes' method to Validator for conditionally adding rules.", "backport": null},
+		{"message": "Added new '--sleep' option to queue:listen command to control time between jobs.", "backport": null},
+		{"message": "Allow Blade processing on echos to be escaped using the @ sign.", "backport": null},
+		{"message": "Allow custom messages to be registered when using Validator::extend.", "backport": null},
+		{"message": "Added new auth:clear-reminders command for clearing expired password reminders.", "backport": null},
+		{"message": "Added Cookie::queue method for creating cookies that are automatically attached to the final response.", "backport": null},
+		{"message": "Allow environment to be checked via App::environment method.", "backport": null},
+		{"message": "Add support for order by and limit on MySQL update queries.", "backport": null}
 	]
 }

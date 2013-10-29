@@ -2,8 +2,8 @@
 
     return array(
         'collectd' => array(
-            'datadir' => '/opt/rrds',
-            'rrdtool' => '/usr/local/bin/rrdtool',
+            'datadir' => '/opt/collectd/var/lib/collectd/rrd_tmpfs/',
+            'rrdtool' => '/usr/bin/rrdtool',
             'rrdtool_opts' => array(),
             'cache' => 90, // seconds
             'width' => 400, // pixels
