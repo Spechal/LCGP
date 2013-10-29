@@ -20,8 +20,8 @@
 
         protected $_png = FALSE;
 
-        protected $_start = NULL;
-        protected $_end = 86400;
+        protected $_start = -86400;
+        protected $_end = NULL;
 
         protected $_config = NULL;
         #protected $_colors = array('value' => '0000FF');
@@ -56,8 +56,8 @@
             );
             $this->_seconds = $this->_get('seconds', 86400);
 
-            $this->_start = $this->_get('start', NULL);
-            $this->_end = $this->_get('end', 86400);
+            $this->_start = $this->_get('start', -86400);
+            $this->_end = $this->_get('end', 'now');
 
             // do other constructor stuff
 
@@ -250,12 +250,15 @@
             // start / end
             #$rrdgraph[] = sprintf('-s e-%d', is_numeric($this->_seconds) ? $this->_seconds : 86400);
 
-            $rrdgraph[] = sprintf('--end start-%ds', is_numeric($this->_end) ? $this->_end : 86400);
-
             if(is_numeric($this->_start))
                 $rrdgraph[] = sprintf('--start %d', $this->_start);
             else
-                $rrdgraph[] = sprintf('--start now');
+                $rrdgraph[] = sprintf('--start -86400');
+
+            if(is_numeric($this->_end))
+                $rrdgraph[] = sprintf('--end %d', $this->_end);
+            else
+                $rrdgraph[] = sprintf('--end now');
 print_r($rrdgraph);exit;
             return $rrdgraph;
         }
