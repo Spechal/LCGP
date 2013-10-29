@@ -250,11 +250,11 @@
             // start / end
             #$rrdgraph[] = sprintf('-s e-%d', is_numeric($this->_seconds) ? $this->_seconds : 86400);
             if(is_numeric($this->_start))
-                $rrdgraph[] = sprintf('-s %d', $this->_start);
+                $rrdgraph[] = sprintf('--start %d', $this->_start);
             else
-                $rrdgraph[] = sprintf('-s');
-            $rrdgraph[] = sprintf('e -%d', is_numeric($this->_end) ? $this->_end : 86400);
-print_r($rrdgraph);exit;
+                $rrdgraph[] = sprintf('--start');
+            $rrdgraph[] = sprintf('--end start-%d', is_numeric($this->_end) ? $this->_end : 86400);
+
             return $rrdgraph;
         }
 
