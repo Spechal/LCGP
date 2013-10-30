@@ -14,15 +14,11 @@
 </div>
 <div class="well">
     <div class="form-group">
-        <div class="col-md-6">Start:
-            <div class="input-group date" id="start">
-                <input type="text" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-            </div>
+        <div class="input-group date col-md-4" id="start">
+            Start: <input type="text" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
         </div>
-        <div class="col-md-6">End: 
-            <div class="input-group date" id="end">
-                <input type="text" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-            </div>
+        <div class="input-group date col-md-4" id="end">
+            End: <input type="text" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
         </div>
     </div>
 </div>
