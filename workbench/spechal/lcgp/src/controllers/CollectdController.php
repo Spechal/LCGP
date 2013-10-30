@@ -19,7 +19,7 @@
 
             if(isset($_POST['end']))
                 $_GET['end'] = strtotime($_POST['end']);
-
+echo 'OK';exit;
             $start = isset($_GET['start']) ? $_GET['start'] : NULL;
             $end = isset($_GET['end']) ? $_GET['end'] : NULL;
 
