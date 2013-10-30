@@ -43,7 +43,7 @@
                 }
             }
 
-            return \View::make('lcgp::plugins')->with(array('host' => $host, 'plugins' => $plugins, 'graphs' => $graphs));
+            return \View::make('lcgp::plugins')->with(array('host' => $host, 'plugins' => $plugins, 'graphs' => $graphs, 'start' => $start, 'end' => $end));
         }
 
         public function graph($host, $plugin){
