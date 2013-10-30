@@ -6,7 +6,13 @@
 
         public function getIndex(){
             $collectd = new Collectd(\Config::get('lcgp::collectd.datadir'));
-            return \View::make('lcgp::index')->with('hosts', $collectd->hosts());
+            $hosts = $collectd->hosts();
+            $loads = array();
+            foreach($hosts as $host){
+                $loads[] = $collectd->pluginData($host, 'load');
+            }
+            print_r($loads);exit;
+            return \View::make('lcgp::index')->with('hosts', $hosts);
         }
 
         public function getHostPlugins($host){
