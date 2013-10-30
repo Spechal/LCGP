@@ -62,7 +62,7 @@
 <script type="text/javascript">
     <!--
         $(function(){
-            $('#start').datetimepicker({startDate: '{{ date('m/d/Y', strtotime('3 months ago')) }}', endDate:'{{ date('m/d/Y') }}'});
+            $('#start').datetimepicker({defaultDate: '{{ date('m/d/Y', strtotime("yesterday")) }}', startDate: '{{ date('m/d/Y', strtotime('3 months ago')) }}', endDate:'{{ date('m/d/Y') }}'});
             $('#end').datetimepicker({defaultDate: '{{ date('m/d/Y') }}', startDate: '{{ date('m/d/Y', strtotime('3 months ago')) }}', endDate:'{{ date('m/d/Y') }}'});
         });
     //-->
