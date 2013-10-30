@@ -9,9 +9,13 @@
             $hosts = $collectd->hosts();
             $loads = array();
             foreach($hosts as $host){
-                $loads[] = $collectd->readRRD(\Config::get('lcgp::collectd.datadir') . DIRECTORY_SEPARATOR . $host . DIRECTORY_SEPARATOR . 'load' . DIRECTORY_SEPARATOR . 'load.rrd');
+                $loads[$host] = array();
+                $data = $collectd->readRRD(\Config::get('lcgp::collectd.datadir') . DIRECTORY_SEPARATOR . $host . DIRECTORY_SEPARATOR . 'load' . DIRECTORY_SEPARATOR . 'load.rrd');
+                $loads[$host]['cores'] = count($collectd->groupPlugins($collectd->pluginData($host, 'cpu')));
+                $loads[$host]['short'] = $data['ds[shortterm].last_ds'];
+                $loads[$host]['mid'] = $data['ds[midterm].last_ds'];
+                $loads[$host]['long'] = $data['ds[longterm].last_ds'];
             }
-            print_r($loads);exit;
             return \View::make('lcgp::index')->with('hosts', $hosts);
         }
 
