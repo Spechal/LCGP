@@ -31,6 +31,9 @@
 </div>
 @stop
 
+@section('styles')
+{{ HTML::style('assets/css/bootstrap-datetimepicker.min.css', array('media' => 'screen')) }}
+@stop
 
 @section('scripts')
 {{ HTML::script('packages/spechal/lcgp/js/sprintf.js') }}
@@ -44,5 +47,21 @@
 {{ HTML::script('packages/spechal/lcgp/js/RrdDataFile.js') }}
 {{ HTML::script('packages/spechal/lcgp/js/RrdCmdLine.js') }}
 {{ HTML::script('packages/spechal/lcgp/js/CGP.js') }}
+{{ HTML::script('assets/js/bootstrap-datetimepicker.min.js') }}
+<script type="text/javascript">
+    <!--
+    $(function(){
+        $('#start').datetimepicker({startDate: '{{ date('m/d/Y', strtotime('3 months ago')) }}', endDate:'{{ date('m/d/Y') }}'});
+    $('#end').datetimepicker({startDate: '{{ date('m/d/Y', strtotime('3 months ago')) }}', endDate:'{{ date('m/d/Y') }}'});
+    });
 
+    function checkDates(){
+        if($('#start').data('DateTimePicker').getDate() > $('#end').data('DateTimePicker').getDate()){
+            alert('Start date is beyond end date');
+            return false;
+        }
+        return true;
+    }
+    //-->
+</script>
 @stop
