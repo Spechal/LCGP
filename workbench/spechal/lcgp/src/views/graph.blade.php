@@ -12,13 +12,17 @@
         <li class="active">{{ $plugin }}</li>
     </ol>
 </div>
-<div class="well">
-    <div class="form-group">
-        <div class="input-group date col-md-4" id="start">
-            <input type="text" placeholder="Start" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-        </div>
-        <div class="input-group date col-md-4" id="end">
-            End: <input type="text" placeholder="End" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+<div class="container">
+    <div class="col-md-12">
+        <div class="well">
+            <div class="form-group">
+                <div class="input-group date col-md-6" id="start">
+                    <input type="text" placeholder="Start" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+                <div class="input-group date col-md-6" id="end">
+                    <input type="text" placeholder="End" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
