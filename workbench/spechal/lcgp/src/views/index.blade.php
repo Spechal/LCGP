@@ -8,7 +8,7 @@
 <h4>Hosts</h4>
 <ul>
 @foreach($hosts as $host)
-    <li><a href="/collectd/plugins/{{ $host }}">{{ $host }}</a></li>
+    <li><a href="/collectd/plugins/{{ $host.name }}">{{ $host.name }}</a></li>
 @endforeach
 </ul>
 @stop

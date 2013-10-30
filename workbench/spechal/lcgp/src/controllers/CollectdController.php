@@ -6,17 +6,18 @@
 
         public function getIndex(){
             $collectd = new Collectd(\Config::get('lcgp::collectd.datadir'));
-            $hosts = $collectd->hosts();
-            $loads = array();
-            foreach($hosts as $host){
-                $loads[$host] = array();
+            $names = $collectd->hosts();
+            $hosts = array();
+            foreach($names as $host){
+                $hosts[$host] = array();
+                $hosts[$host]['name'] = $host;
                 $data = $collectd->readRRD(\Config::get('lcgp::collectd.datadir') . DIRECTORY_SEPARATOR . $host . DIRECTORY_SEPARATOR . 'load' . DIRECTORY_SEPARATOR . 'load.rrd');
-                $loads[$host]['cores'] = count($collectd->groupPlugins($collectd->pluginData($host, 'cpu')));
-                $loads[$host]['short'] = $data['ds[shortterm].last_ds'];
-                $loads[$host]['mid'] = $data['ds[midterm].last_ds'];
-                $loads[$host]['long'] = $data['ds[longterm].last_ds'];
+                $hosts[$host]['cores'] = count($collectd->groupPlugins($collectd->pluginData($host, 'cpu')));
+                $hosts[$host]['short'] = $data['ds[shortterm].last_ds'];
+                $hosts[$host]['mid'] = $data['ds[midterm].last_ds'];
+                $hosts[$host]['long'] = $data['ds[longterm].last_ds'];
             }
-            print_r($loads);exit;
+
             return \View::make('lcgp::index')->with('hosts', $hosts);
         }
 
