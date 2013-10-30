@@ -13,7 +13,7 @@
 </div>
 
 <div class="container form-group">
-    <form method="post" action="/collectd/graph/{{$host}}/{{$plugin}}">
+    <form method="post" action="/collectd/plugins/{{$host}}">
         <div class="input-group date col-md-4 margin5" id="start">
             <input name="start" type="text" placeholder="{{date('m/d/Y', $start)}}" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
         </div>
