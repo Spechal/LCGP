@@ -6,9 +6,14 @@
 
 @section('content')
 <h4>Hosts</h4>
-<ul>
+<table class="table table-striped">
 @foreach($hosts as $host)
-    <li><a href="/collectd/plugins/{{ $host['name'] }}">{{ $host['name'] }}</a></li>
+    <tr>
+        <td><a href="/collectd/plugins/{{ $host['name'] }}">{{ $host['name'] }}</a></td>
+        <td>{{ $host['shortterm'] }}</td>
+        <td>{{ $host['midterm'] }}</td>
+        <td>{{ $host['longterm'] }}</td>
+    </tr>
 @endforeach
-</ul>
+</table>
 @stop
