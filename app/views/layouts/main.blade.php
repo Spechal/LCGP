@@ -31,10 +31,10 @@
     @yield('content')
 </div>
 
-@yield('scripts')
-
 {{ HTML::script('assets/js/jquery-2.0.3.js') }}
 {{ HTML::script('assets/js/bootstrap.min.js') }}
+
+@yield('scripts')
 
 </body>
 </html>
