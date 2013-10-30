@@ -12,6 +12,13 @@
         <li class="active">{{ $plugin }}</li>
     </ol>
 </div>
+<div class="well">
+    <div class="form-group">
+        <div class="input-group date" id="start">
+            <input type="text" class="form-control" />
+        </div>
+    </div>
+</div>
 <div>
     <ul class="nav nav-pills">
         @foreach($plugins as $plug)
@@ -44,4 +51,12 @@
 {{ HTML::script('packages/spechal/lcgp/js/RrdCmdLine.js') }}
 {{ HTML::script('packages/spechal/lcgp/js/CGP.js') }}
 {{ HTML::style('assets/js/bootstrap-datetimepicker.min.js') }}
+<script type="text/javascript">
+    <!--
+        $(function(){
+            $('#start').datetimepicker();
+        });
+    //-->
+</script>
 @stop
+
