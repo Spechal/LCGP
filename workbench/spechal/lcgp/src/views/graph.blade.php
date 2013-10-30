@@ -57,8 +57,8 @@
 <script type="text/javascript">
     <!--
         $(function(){
-            $('#start').datetimepicker();
-            $('#end').datetimepicker();
+            $('#start').datetimepicker({startDate: {{ date('m/d/Y', strtotime('3 months ago')) }}, endDate:{{ date('m/d/Y') }}});
+            $('#end').datetimepicker({endDate:{{ date('m/d/Y') }}});
         });
     //-->
 </script>
