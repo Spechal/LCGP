@@ -9,8 +9,7 @@
             $hosts = $collectd->hosts();
             $loads = array();
             foreach($hosts as $host){
-                $p = new CollectdPlugin(\Config::get('lcgp::collectd.datadir'), $host);
-                $loads[] = $p->data('load');
+                $loads[] = $collectd->readRRD(\Config::get('lcgp::collectd.datadir') . DIRECTORY_SEPARATOR . $host . DIRECTORY_SEPARATOR . 'load' . DIRECTORY_SEPARATOR . 'load.rrd');
             }
             print_r($loads);exit;
             return \View::make('lcgp::index')->with('hosts', $hosts);

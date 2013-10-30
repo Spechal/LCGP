@@ -12,6 +12,23 @@ class Collectd {
         $this->_rrd_dir = $rrd_dir;
     }
 
+    public function readRRD($file){
+        if (file_exists($file)) {
+            $raw_info = shell_exec(\Config::get('lcgp::collectd.rrdtool') . ' info ' . $file);
+            $raw_array = explode("\n", $raw_info);
+            foreach ($raw_array as $key => $info) {
+                if ($info != "") {
+                    $item_info = explode(" = ", $info);
+                    $item_info[1] = preg_replace('/"/', '', $item_info[1]);
+                    $info_array[$item_info[0]] = $item_info[1];
+                }
+            }
+            return($info_array);
+        } else {
+            return false;
+        }
+    }
+
     /**
      * Get a list of hosts based on directory names
      *
