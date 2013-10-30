@@ -248,17 +248,19 @@
             if ($this->_rrd_vertical)
                 $rrdgraph[] = sprintf('-v "%s"', $this->_rrd_vertical);
             // start / end
-            #$rrdgraph[] = sprintf('-s e-%d', is_numeric($this->_seconds) ? $this->_seconds : 86400);
+            if(!$this->_png){
+                $rrdgraph[] = sprintf('-s e-%d', is_numeric($this->_seconds) ? $this->_seconds : 86400);
+            } else {
+                if(is_numeric($this->_start))
+                    $rrdgraph[] = sprintf('--start %d', $this->_start);
+                else
+                    $rrdgraph[] = sprintf('--start -86400');
 
-            if(is_numeric($this->_start))
-                $rrdgraph[] = sprintf('--start %d', $this->_start);
-            else
-                $rrdgraph[] = sprintf('--start -86400');
-
-            if(is_numeric($this->_end))
-                $rrdgraph[] = sprintf('--end %d', $this->_end);
-            else
-                $rrdgraph[] = sprintf('--end now');
+                if(is_numeric($this->_end))
+                    $rrdgraph[] = sprintf('--end %d', $this->_end);
+                else
+                    $rrdgraph[] = sprintf('--end now');
+            }
 
             return $rrdgraph;
         }
