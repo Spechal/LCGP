@@ -20,7 +20,7 @@
 
         protected $_png = FALSE;
 
-        protected $_start = -86400;
+        protected $_start = NULL;
         protected $_end = NULL;
 
         protected $_config = NULL;
@@ -252,7 +252,7 @@
                 #$rrdgraph[] = sprintf('-s e-%d', is_numeric($this->_seconds) ? $this->_seconds : 86400);
                 if(is_numeric($this->_start))
                     $rrdgraph[] = sprintf('--start %d', $this->_start);
-                
+
                 if(is_numeric($this->_end))
                     $rrdgraph[] = sprintf('--end %d', $this->_end);
 
