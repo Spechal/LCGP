@@ -50,7 +50,8 @@
 {{ HTML::script('packages/spechal/lcgp/js/RrdDataFile.js') }}
 {{ HTML::script('packages/spechal/lcgp/js/RrdCmdLine.js') }}
 {{ HTML::script('packages/spechal/lcgp/js/CGP.js') }}
-{{ HTML::style('assets/js/bootstrap-datetimepicker.min.js') }}
+{{ HTML::script('assets/js/bootstrap-datetimepicker.min.js') }}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type=text/javascript"></script>
 <script type="text/javascript">
     <!--
         $(function(){
