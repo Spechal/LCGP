@@ -22,7 +22,7 @@
         <input name="end" type="text" placeholder="{{date('m/d/Y', $end)}}" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
     </div>
     <div class="input-group col-md-2 margin5" id="end">
-        <button type="submit" class="btn btn-success form-control">Update</button>
+        <button type="submit" class="btn btn-success form-control" onclick="checkDates()">Update</button>
     </div>
     </form>
 </div>
@@ -65,6 +65,13 @@
             $('#start').datetimepicker({startDate: '{{ date('m/d/Y', strtotime('3 months ago')) }}', endDate:'{{ date('m/d/Y') }}'});
             $('#end').datetimepicker({startDate: '{{ date('m/d/Y', strtotime('3 months ago')) }}', endDate:'{{ date('m/d/Y') }}'});
         });
+
+        function checkDates(){
+            if($('#start').data('DateTimePicker').getDate() > $('#end').data('DateTimePicker').getDate()){
+                alert('Start date is beyond end date');
+                return false;
+            }
+        }
     //-->
 </script>
 @stop
