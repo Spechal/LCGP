@@ -19,7 +19,7 @@
 
             if(isset($_POST['end']))
                 $_GET['end'] = strtotime($_POST['end']);
-echo 'OK';exit;
+
             $start = isset($_GET['start']) ? $_GET['start'] : NULL;
             $end = isset($_GET['end']) ? $_GET['end'] : NULL;
 
@@ -42,7 +42,7 @@ echo 'OK';exit;
                         $graphs[$plugin][] = '<img src="/collectd/png/'.$host.'/'.$plugin.'?plugin_instance='.$plugin_instance.'&type='.$type.'&type_instance='.$type_instance.'&category='.$cat.'&start='.$start.'&end='.$end.'" />';
                 }
             }
-
+            echo 'OK';exit;
             return \View::make('lcgp::plugins')->with(array('host' => $host, 'plugins' => $plugins, 'graphs' => $graphs, 'start' => $start, 'end' => $end));
         }
 
