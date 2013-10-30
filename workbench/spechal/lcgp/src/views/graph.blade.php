@@ -13,11 +13,11 @@
     </ol>
 </div>
 
-<div class="form-group">
-    <div class="input-group date col-md-6" id="start">
+<div class="container form-group">
+    <div class="input-group date col-md-4 margin5" id="start">
         <input type="text" placeholder="Start" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
     </div>
-    <div class="input-group date col-md-6" id="end">
+    <div class="input-group date col-md-4 margin5" id="end">
         <input type="text" placeholder="End" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
     </div>
 </div>
