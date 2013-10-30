@@ -32,6 +32,7 @@
 </div>
 
 {{ HTML::script('assets/js/jquery-2.0.3.js') }}
+{{ HTML::script('assets/js/moment.js') }}
 {{ HTML::script('assets/js/bootstrap.min.js') }}
 
 @yield('scripts')
