@@ -73,7 +73,7 @@
             }
 
             // $graph comes from the include
-            return \View::make('lcgp::graph')->with(array('host' => $host, 'plugins' => $plugins, 'plugin' => $plugin, 'graphs' => $graphs));
+            return \View::make('lcgp::graph')->with(array('host' => $host, 'plugins' => $plugins, 'plugin' => $plugin, 'graphs' => $graphs, 'start' => $start, 'end' => $end));
         }
 
         /**
