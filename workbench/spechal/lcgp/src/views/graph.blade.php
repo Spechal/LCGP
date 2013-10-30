@@ -16,12 +16,12 @@
 <div class="container form-group">
     <form method="post" action="/collectd/graph/{{$host}}/{{$plugin}}">
     <div class="input-group date col-md-4 margin5" id="start">
-        <input name="start" type="text" placeholder="{{$start}}" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+        <input name="start" type="text" placeholder="{{date('m/d/Y', $start)}}" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
     </div>
     <div class="input-group date col-md-4 margin5" id="end">
-        <input name="end" type="text" placeholder="{{$end}}" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+        <input name="end" type="text" placeholder="{{date('m/d/Y', $end)}}" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
     </div>
-    <div class="input-group date col-md-4 margin5" id="end">
+    <div class="input-group col-md-2 margin5" id="end">
         <button type="submit" class="btn btn-success form-control">Update</button>
     </div>
     </form>
