@@ -42,7 +42,7 @@
                         $graphs[$plugin][] = '<img src="/collectd/png/'.$host.'/'.$plugin.'?plugin_instance='.$plugin_instance.'&type='.$type.'&type_instance='.$type_instance.'&category='.$cat.'&start='.$start.'&end='.$end.'" />';
                 }
             }
-            echo 'OK';exit;
+
             return \View::make('lcgp::plugins')->with(array('host' => $host, 'plugins' => $plugins, 'graphs' => $graphs, 'start' => $start, 'end' => $end));
         }
 
