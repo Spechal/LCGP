@@ -14,7 +14,10 @@
 </div>
 <div class="well">
     <div class="form-group">
-        <div class="input-group date" id="start">
+        <div class="input-group date col-md-4" id="start">
+            <input type="text" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+        </div>
+        <div class="input-group date col-md-4" id="end">
             <input type="text" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
         </div>
     </div>
@@ -55,6 +58,7 @@
     <!--
         $(function(){
             $('#start').datetimepicker();
+            $('#end').datetimepicker();
         });
     //-->
 </script>
