@@ -10,7 +10,7 @@
 @foreach($hosts as $host)
     <tr>
         <td><a href="/collectd/plugins/{{ $host['name'] }}">{{ $host['name'] }}</a></td>
-        <td class="@if($host['short'] > $host['cores']) alert-danger @endif">{{ $host['short'] }}</td>
+        <td>{{ $host['short'] }}</td>
         <td>{{ $host['mind'] }}</td>
         <td>{{ $host['long'] }}</td>
     </tr>
