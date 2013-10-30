@@ -27,6 +27,10 @@
 </div>
 @stop
 
+@section('styles')
+{{ HTML::style('assets/css/bootstrap-datetimepicker.min.css', array('media' => 'screen')) }}
+@stop
+
 @section('scripts')
 {{ HTML::script('packages/spechal/lcgp/js/sprintf.js') }}
 {{ HTML::script('packages/spechal/lcgp/js/strftime.js') }}
@@ -39,4 +43,5 @@
 {{ HTML::script('packages/spechal/lcgp/js/RrdDataFile.js') }}
 {{ HTML::script('packages/spechal/lcgp/js/RrdCmdLine.js') }}
 {{ HTML::script('packages/spechal/lcgp/js/CGP.js') }}
+{{ HTML::style('assets/js/bootstrap-datetimepicker.min.js') }}
 @stop

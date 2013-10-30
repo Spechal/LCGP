@@ -9,6 +9,8 @@
     {{ HTML::style('assets/css/bootstrap-flatly.min.css', array('media' => 'screen')) }}
     {{ HTML::style('assets/css/custom.css', array('media' => 'screen')) }}
 
+    @yield('styles')
+
 </head>
 <body>
 
