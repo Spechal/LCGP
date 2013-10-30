@@ -22,7 +22,7 @@
         <input name="end" type="text" placeholder="{{date('m/d/Y', $end)}}" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
     </div>
     <div class="input-group col-md-2 margin5" id="end">
-        <button type="submit" class="btn btn-success form-control" onclick="checkDates()">Update</button>
+        <button type="submit" class="btn btn-success form-control" onclick="return checkDates()">Update</button>
     </div>
     </form>
 </div>
@@ -71,6 +71,7 @@
                 alert('Start date is beyond end date');
                 return false;
             }
+            return true;
         }
     //-->
 </script>
