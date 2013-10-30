@@ -56,7 +56,7 @@
             );
             $this->_seconds = $this->_get('seconds', 86400);
 
-            $this->_start = $this->_get('start', -86400);
+            $this->_start = $this->_get('start', strtotime('yesterday'));
             $this->_end = $this->_get('end', 'now');
 
             // do other constructor stuff
