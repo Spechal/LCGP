@@ -258,7 +258,7 @@
                 if(is_numeric($this->_end))
                     $rrdgraph[] = sprintf('--end %d', $this->_end);
                 else
-                    $rrdgraph[] = sprintf('e-86400');
+                    $rrdgraph[] = sprintf('-e -86400');
             } else {
                 if(is_numeric($this->_start))
                     $rrdgraph[] = sprintf('--start %d', $this->_start);
