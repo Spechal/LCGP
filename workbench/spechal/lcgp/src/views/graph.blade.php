@@ -14,12 +14,17 @@
 </div>
 
 <div class="container form-group">
+    <form method="post" action="">
     <div class="input-group date col-md-4 margin5" id="start">
         <input type="text" placeholder="Start" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
     </div>
     <div class="input-group date col-md-4 margin5" id="end">
         <input type="text" placeholder="End" class="form-control" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
     </div>
+    <div class="input-group date col-md-4 margin5" id="end">
+        <button type="submit" class="btn btn-success form-control">Update</button>
+    </div>
+    </form>
 </div>
 
 <div>

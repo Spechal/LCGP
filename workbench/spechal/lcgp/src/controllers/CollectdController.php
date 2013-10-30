@@ -40,6 +40,14 @@
         }
 
         public function graph($host, $plugin){
+
+            // convert POSTed start and end times to GETs
+            if(isset($_POST['start']))
+                $_GET['start'] = strtotime($_POST['start']);
+
+            if(isset($_POST['end']))
+                $_GET['end'] = strtotime($_POST['end']);
+
             $start = isset($_GET['start']) ? $_GET['start'] : NULL;
             $end = isset($_GET['end']) ? $_GET['end'] : NULL;
 
