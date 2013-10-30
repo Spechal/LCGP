@@ -16,6 +16,7 @@
                 $loads[$host]['mid'] = $data['ds[midterm].last_ds'];
                 $loads[$host]['long'] = $data['ds[longterm].last_ds'];
             }
+            print_r($loads);exit;
             return \View::make('lcgp::index')->with('hosts', $hosts);
         }
 
