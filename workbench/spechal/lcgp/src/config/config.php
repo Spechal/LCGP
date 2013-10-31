@@ -13,6 +13,6 @@
             'graph_smooth' => FALSE,
             'negative_io' => FALSE,
             'graph_type' => 'canvas',
-            'png' => TRUE // this doesn't work when set to TRUE until PNG support is fully implemented
+            'png' => FALSE // this doesn't work when set to TRUE until PNG support is fully implemented
         )
     );
