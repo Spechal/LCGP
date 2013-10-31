@@ -32,3 +32,4 @@
     }
 
     $graphs[$config['plugin']][] = $obj->rrd_graph();
+print_r($graphs);exit;
