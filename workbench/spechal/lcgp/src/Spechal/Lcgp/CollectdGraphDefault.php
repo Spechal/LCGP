@@ -156,7 +156,6 @@
                     $files[$key] = preg_replace('#\.rrd$#', '', $files[$key]);
                 }
             }
-            print_r($files);exit;
             return $files;
         }
 
@@ -211,7 +210,7 @@
 
             $wildcard = strlen($this->_args['type_instance']) ? '.' : '[-.]*';
             $files = glob($this->_datadir .'/'. $identifier . $wildcard . 'rrd');
-
+            print_r($files);exit;
             return $files;
         }
 
