@@ -294,7 +294,7 @@
                     $sources = $this->_type_instances;
                 }
             } else {
-                echo 'TI = '; print_r($$this->_type_instances);
+                echo 'TI = '; print_r($this->_type_instances);
                 echo 'DS = '; print_r($this->_data_sources);
                 // source is in a single file
                 if(is_array($this->_data_sources) && count($this->_data_sources) == 1 && in_array('value', $this->_data_sources)){
