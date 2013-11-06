@@ -212,6 +212,7 @@
 
             $wildcard = strlen($this->_args['type_instance']) ? '.' : '[-.]*';
             $files = glob($this->_datadir .'/'. $identifier . $wildcard . 'rrd');
+            echo $this->_datadir .'/'. $identifier . $wildcard . 'rrd';exit;
 
             return $files;
         }
