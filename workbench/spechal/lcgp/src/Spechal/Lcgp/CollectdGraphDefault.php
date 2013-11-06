@@ -156,6 +156,7 @@
                     $files[$key] = preg_replace('#\.rrd$#', '', $files[$key]);
                 }
             }
+            print_r($files);exit;
             return $files;
         }
 
