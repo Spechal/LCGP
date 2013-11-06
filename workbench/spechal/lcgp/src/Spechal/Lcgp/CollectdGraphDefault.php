@@ -210,8 +210,8 @@
 
             $wildcard = strlen($this->_args['type_instance']) ? '.' : '[-.]*';
             $files = glob($this->_datadir .'/'. $identifier . $wildcard . 'rrd');
-            echo 'print_r(glob("'.$this->_datadir .'/'. $identifier . $wildcard . 'rrd'.'"));';
-            print_r($files);exit;
+            echo $identifier;exit;
+
             return $files;
         }
 
