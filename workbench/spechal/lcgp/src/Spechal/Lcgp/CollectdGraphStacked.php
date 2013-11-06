@@ -15,6 +15,8 @@
 
             $sources = $this->_rrd_sources();
 
+            print_r($sources);exit;
+
             #echo '<pre>';
             #print_r($this->_colors);
             #print_r($sources);
