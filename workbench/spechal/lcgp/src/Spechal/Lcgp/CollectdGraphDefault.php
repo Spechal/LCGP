@@ -199,8 +199,6 @@
          * @return array
          */
         protected function _get_filenames(){
-            if($this->_args['plugin'] == 'df')
-                $this->_args['instance'] = NULL;
             $identifier = sprintf('%s/%s%s%s%s%s/%s%s%s',
                 $this->_args['host'],
                 $this->_args['plugin'],
@@ -212,7 +210,6 @@
 
             $wildcard = strlen($this->_args['type_instance']) ? '.' : '[-.]*';
             $files = glob($this->_datadir .'/'. $identifier . $wildcard . 'rrd');
-            echo $this->_datadir .'/'. $identifier . $wildcard . 'rrd';exit;
 
             return $files;
         }
