@@ -6,8 +6,8 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-4"><h4>Hosts</h4></div>
-    <div class="col-md-4 pull-right"><form><input type=text" class="" placeholder="search" /><button type="submit" class="btn btn-small">Submit</button></form></div>
+    <div class="col-md-4 form-group"><h4>Hosts</h4></div>
+    <div class="col-md-4 form-group pull-right"><form><input type=text" class="form-control" placeholder="search" /><button type="submit" class="btn btn-sm">Submit</button></form></div>
 </div>
 <table class="table table-striped table-bordered">
     <thead>
