@@ -6,7 +6,7 @@ See https://github.com/pommi/CGP/ for CGP
 
 ### To Do
 
-- Verify code is an acceptable package
+- Move newly added code back into the Laravel package
 - Add groupings and categories back from the CGP v3 fork at https://github.com/Spechal/CGP
 - Finish porting plugins
 - [x] apache
