@@ -7,9 +7,9 @@
 @section('content')
 <div class="row">
     <div class="col-md-4 form-group"><h4>Hosts</h4></div>
-    <div class="col-md-4 form-group pull-right"><form class="form-inline"><input type=text" class="form-control form-control-75" placeholder="search" /><button type="submit" class="btn btn-sm">Submit</button></form></div>
+    <div class="col-md-4 form-group pull-right"><form class="form-inline"><input type=text" class="form-control form-control-75" placeholder="search" id="search-box" /><button type="submit" class="btn btn-sm margin5">Submit</button></form></div>
 </div>
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered" id="searchable">
     <thead>
         <tr>
             <th>Host Name</th>
