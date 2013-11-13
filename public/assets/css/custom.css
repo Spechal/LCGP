@@ -15,6 +15,10 @@ body {
     width: 100%;
 }
 
+.highlight {
+    background-color: #FFFF00;
+}
+
 /** change form-control widths */
 .form-control-75 {
     width: 75%;
