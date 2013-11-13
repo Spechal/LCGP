@@ -15,6 +15,11 @@ body {
     width: 100%;
 }
 
+/** change form-control widths */
+.form-control-75 {
+    width: 75%;
+}
+
 /** this overrides bootstraps margin-top:-10px on a lot of elements which allows use to center text in a div row **/
 .valign-row-text {
     margin-top: 10px;
