@@ -6,6 +6,7 @@ $(function(){
 
         // hide all 
         $('#searchable').children().children().hide();
+        $('#host-header').show();
         $('#searchable').children().children(':Contains("' + term + '")').show();
     });
 });

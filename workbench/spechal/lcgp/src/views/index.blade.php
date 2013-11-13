@@ -12,7 +12,7 @@
 <div id="filter-count"></div>
 <table class="table table-striped table-bordered" id="searchable">
     <thead>
-        <tr>
+        <tr id="host-header">
             <th>Host Name</th>
             <th>Short Load</th>
             <th>Mid Load</th>
