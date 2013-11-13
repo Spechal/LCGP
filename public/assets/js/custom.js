@@ -5,8 +5,8 @@ $(function(){
         var term = $(this).val();
 
         // hide all 
-        $('#searchable').find().hide();
-        $('#searchable').find(':Contains("' + term + '")').show();
+        $('#searchable').children('host').hide();
+        $('#searchable').children(':Contains("' + term + '")').show();
     });
 });
 

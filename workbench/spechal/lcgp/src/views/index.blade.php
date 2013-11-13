@@ -21,7 +21,7 @@
     </thead>
     <tbody>
     @foreach($hosts as $host)
-        <tr>
+        <tr class="host">
             <td><a href="/collectd/plugins/{{ $host['name'] }}">{{ $host['name'] }}</a></td>
             <td class="@if($host['short'] > $host['cores']) alert-danger @elseif($host['short'] > $host['cores']/2) alert-warning @endif">{{ round($host['short'], 2) }}</td>
             <td class="@if($host['mid'] > $host['cores']) alert-danger @elseif($host['short'] > $host['cores']/2) alert-warning @endif">{{ round($host['mid'], 2) }}</td>
