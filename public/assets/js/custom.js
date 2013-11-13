@@ -7,12 +7,12 @@ $(window).load(function(){
     var SearchableElements = "#searchable blockquote";
     var SearchResultCount = "#filter-count";
 
-    //$(SearchResultCount).text($(SearchableElements).length);
+    $(SearchResultCount).text($(SearchableElements).length);
 
 // SearchBox
     $(SearchBox).keyup(function() {
 
-        //$(SearchResultCount).text("Searching ...");
+        $(SearchResultCount).text("Searching ...");
 
         var filter = $(this).val();
         var count = 0;
@@ -42,7 +42,7 @@ $(window).load(function(){
 
 
         var numberItems = count;
-        //$(SearchResultCount).text(count);
+        $(SearchResultCount).text(count);
 
     });
 });
