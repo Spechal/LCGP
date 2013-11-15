@@ -243,10 +243,10 @@
             // lower limit
             $rrdgraph[] = '-l 0';
             // title
-            $rrdgraph[] = sprintf('-t \'"%s on %s"\'', $this->_rrd_title, $this->_args['host']);
+            $rrdgraph[] = sprintf('-t \'%s on %s\'', $this->_rrd_title, $this->_args['host']);
             // vertical
             if ($this->_rrd_vertical)
-                $rrdgraph[] = sprintf('-v \'"%s"\'', $this->_rrd_vertical);
+                $rrdgraph[] = sprintf('-v \'%s\'', $this->_rrd_vertical);
             // start / end
             if(!$this->_png){
                 #$rrdgraph[] = sprintf('-s e-%d', is_numeric($this->_seconds) ? $this->_seconds : 86400);
