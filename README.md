@@ -23,7 +23,7 @@ See https://github.com/pommi/CGP/ for CGP
 - [x] entropy
 - [ ] filecount
 - [ ] hddtemp
-- [ ] interface (issues with PNG support)
+- [x] interface
 - [ ] ip6tables
 - [ ] iptables
 - [x] irq
