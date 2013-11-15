@@ -382,7 +382,7 @@
                 $rrdgraph[] = sprintf('\'GPRINT:max_%s:MAX:%s Max,\'', $this->_crc32hex($source), $this->_rrd_format);
                 $rrdgraph[] = sprintf('\'GPRINT:avg_%s:LAST:%s Last\\l\'', $this->_crc32hex($source), $this->_rrd_format);
             }
-
+print_r($rrdgraph);exit;
             return $rrdgraph;
         }
 
