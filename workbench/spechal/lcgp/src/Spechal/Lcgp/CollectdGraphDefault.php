@@ -397,7 +397,7 @@
 
             $data = $this->_rrd_gen_graph($this->_png);
 
-            print_r($data);exit;
+            echo '<pre>'; print_r($data); echo '</pre>'; exit;
 
             $return = NULL;
             if(!$this->_png){
