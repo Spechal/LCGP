@@ -17,6 +17,8 @@
 
     $obj->setColors(array('rx' => '0000FF', 'tx' => '00B000'));
 
+    $obj->setFormat('%.0lf');
+
     switch($obj->getArg('type')){
         case 'if_errors':
             $obj->setTitle('Interface Errors ('.$obj->getArg('plugin_instance').')')->setVertical('Errors per second');
