@@ -382,7 +382,7 @@
                 $rrdgraph[] = sprintf('\'GPRINT:max_%s:MAX:%s Max,\'', $this->_crc32hex($source), $this->_rrd_format);
                 $rrdgraph[] = sprintf('\'GPRINT:avg_%s:LAST:%s Last\\l\'', $this->_crc32hex($source), $this->_rrd_format);
             }
-print_r($rrdgraph);exit;
+
             return $rrdgraph;
         }
 
@@ -396,6 +396,8 @@ print_r($rrdgraph);exit;
                 $this->_rainbow_colors();
 
             $data = $this->_rrd_gen_graph($this->_png);
+
+            print_r($data);exit;
 
             $return = NULL;
             if(!$this->_png){
