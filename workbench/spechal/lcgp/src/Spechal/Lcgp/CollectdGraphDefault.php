@@ -188,7 +188,7 @@
                 $name = str_replace('/', '%7C', $name);
                 return $this->_rrd_escape('/collectd/rrd/file/'.$name, $this->_png);
             } else {
-                $name = str_replace(' ', '\ ', $name);
+                $name = str_replace(array(' ', '(', ')'), array('\ ', '\(', '\)'), $name);
                 return $this->_rrd_escape($name, $this->_png);
             }
         }
