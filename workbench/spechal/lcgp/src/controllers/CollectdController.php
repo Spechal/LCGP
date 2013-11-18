@@ -122,21 +122,13 @@
          * -- need another part to output the img tags
          */
         public function png($host, $plugin){
-            $collectd = new Collectd(\Config::get('lcgp::collectd.datadir'));
-            #$data = $collectd->pluginData($host, $plugin);
-            #$d = $data[0];
             header("Expires: " . date(DATE_RFC822,strtotime(\Config::get('lcgp::collectd.cache')." seconds")));
 
-            #$_GET['host'] = (isset($_GET['host'])) ? $_GET['host'] : NULL;
-            #$_GET['plugin'] = (isset($_GET['plugin'])) ? $_GET['plugin'] : NULL;
-            #$plugin = $d['plugin'];
             $_GET['category'] = (isset($_GET['category'])) ? $_GET['category'] : NULL;
             $_GET['plugin_instance'] = (isset($_GET['plugin_instance'])) ? $_GET['plugin_instance'] : NULL;
             $_GET['type'] = (isset($_GET['type'])) ? $_GET['type'] : NULL;
             $_GET['type_instance'] = (isset($_GET['type_instance'])) ? $_GET['type_instance'] : NULL;
 
-            #$host = $_GET['host'];
-            #$plugin = $_GET['plugin'];
             include(__DIR__.'/../Spechal/Lcgp/plugins/'.$plugin.'.php');
         }
 
