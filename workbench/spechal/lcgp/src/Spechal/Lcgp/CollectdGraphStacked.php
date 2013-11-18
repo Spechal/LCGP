@@ -15,11 +15,6 @@
 
             $sources = $this->_rrd_sources();
 
-            #echo '<pre>';
-            #print_r($this->_colors);
-            #print_r($sources);
-            #exit;
-
             $raw = null;
             if ($this->_scale)
                 $raw = '_raw';

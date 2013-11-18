@@ -67,8 +67,8 @@
             if(isset($_POST['end']))
                 $_GET['end'] = strtotime($_POST['end']);
 
-            $start = isset($_GET['start']) ? $_GET['start'] : NULL;
-            $end = isset($_GET['end']) ? $_GET['end'] : NULL;
+            $start = isset($_GET['start']) ? $_GET['start'] : time();
+            $end = isset($_GET['end']) ? $_GET['end'] : $start - 86400;
 
             $collectd = new Collectd(\Config::get('lcgp::collectd.datadir'));
             $plugins = $collectd->plugins($host);
