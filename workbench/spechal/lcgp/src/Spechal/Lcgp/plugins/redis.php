@@ -19,12 +19,17 @@
             $obj->setColors(array('clients' => '00E000', 'slaves' => '0000FF'));
             $obj->setTitle('Connections')->setVertical('Connections');
             break;
-        case 'memcached_connections':
+        case 'total_connections':
             $obj = new CollectdGraphDefault($config);
-            $obj->setDataSources(array('value'));
-            $obj->setDataSourceNames(array('value' => 'Connections'));
-            $obj->setColors(array('value' => '00B000'));
-            $obj->setTitle('Number of connections')->setVertical('Connections');
+            $obj->setTitle('Total Connections')->setVertical('Total Connections');
+            break;
+        case 'volatile_changes':
+            $obj = new CollectdGraphDefault($config);
+            $obj->setTitle('Volatile Changes')->setVertical('Volatile Changes');
+            break;
+        case 'total_operations':
+            $obj = new CollectdGraphDefault($config);
+            $obj->setTitle('Total Operations')->setVertical('Total Operations');
             break;
         default:
             break;
