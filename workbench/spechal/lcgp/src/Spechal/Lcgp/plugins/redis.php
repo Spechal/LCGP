@@ -5,7 +5,7 @@
     $config = \Config::get('lcgp::collectd');
     // host comes from the controller that load the plugin
     $config['host'] = $host;
-    $config['plugin'] = 'memcached';
+    $config['plugin'] = 'redis';
 
     switch($_GET['type']){
         case 'memory':
