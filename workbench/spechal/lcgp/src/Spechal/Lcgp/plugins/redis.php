@@ -10,10 +10,6 @@
     switch($_GET['type']){
         case 'memory':
             $obj = new CollectdGraphDefault($config);
-            $obj->setDataSources(array('used'));
-            $obj->setDataSourceNames(array('used' => 'Used'));
-            $obj->setOrder(array('used'));
-            $obj->setColors(array('used' => '00E000'));
             $obj->setTitle('Memory Usage')->setVertical('Bytes');
             break;
         case 'current_connections':
