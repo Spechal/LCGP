@@ -4,6 +4,13 @@ LCGP is pretty much a port of CGP v4 to Laravel.
 
 See https://github.com/pommi/CGP/ for CGP
 
+### To install
+This package is still in progress so it isn't published.
+
+You can install Laravel 4 and copy over the files from workbench/spechal and then add Spechal\Lcgp\LcgpServiceProvider to your service providers array or upload the entire project to your web root.
+
+You will need to modify the workbench/spechal/lcgp/src/config/config.php to point to your CollectD RRD files and rrdtool executable.
+
 ### To Do
 
 - Move newly added code back into the Laravel package
@@ -43,6 +50,7 @@ See https://github.com/pommi/CGP/ for CGP
 - [ ] postgresql
 - [ ] powerdns
 - [x] processes
+- [x] redis
 - [ ] sensors
 - [ ] snmp
 - [x] swap
