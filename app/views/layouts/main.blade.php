@@ -6,8 +6,8 @@
         @show
     </title>
 
-    {{ HTML::style('assets/css/bootstrap-flatly.min.css', array('media' => 'screen')) }}
-    {{ HTML::style('assets/css/custom.css', array('media' => 'screen')) }}
+    {{ HTML::style('packages/spechal/lcgp/css/bootstrap-flatly.min.css', array('media' => 'screen')) }}
+    {{ HTML::style('packages/spechal/lcgp/css/custom.css', array('media' => 'screen')) }}
 
     @yield('styles')
 
@@ -31,10 +31,10 @@
     @yield('content')
 </div>
 
-{{ HTML::script('assets/js/jquery-2.0.3.js') }}
-{{ HTML::script('assets/js/moment.js') }}
-{{ HTML::script('assets/js/bootstrap.min.js') }}
-{{ HTML::script('assets/js/custom.js') }}
+{{ HTML::script('packages/spechal/lcgp/js/jquery-2.0.3.js') }}
+{{ HTML::script('packages/spechal/lcgp/js/moment.js') }}
+{{ HTML::script('packages/spechal/lcgp/js/bootstrap.min.js') }}
+{{ HTML::script('packages/spechal/lcgp/js/custom.js') }}
 
 @yield('scripts')
 
