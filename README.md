@@ -11,6 +11,8 @@ You can install Laravel 4 and copy over the files from workbench/spechal and the
 
 You will need to modify the workbench/spechal/lcgp/src/config/config.php to point to your CollectD RRD files and rrdtool executable.
 
+In addition, if LCGP is not being used stand-alone, you will need to change the main route in app/routes.php
+
 ### To Do
 
 - Move newly added code back into the Laravel package
@@ -24,7 +26,7 @@ You will need to modify the workbench/spechal/lcgp/src/config/config.php to poin
 - [x] contextswitch
 - [x] cpu
 - [ ] cpufreq
-- [ ] df (currently shows a graph for each data source instead of merging them -- issues with PNG support)
+- [ ] df (currently shows a graph for each data source instead of merging them)
 - [x] disk
 - [ ] dns
 - [x] entropy
