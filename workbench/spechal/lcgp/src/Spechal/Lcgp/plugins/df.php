@@ -8,7 +8,6 @@
     $config['plugin'] = 'df';
 
     $obj = new CollectdGraphStacked($config);
-    $obj->setDataSources(array('value'));
     $obj->setOrder(array('reserved', 'free', 'used'));
     $obj->setDataSourceNames(
         array(
@@ -20,6 +19,8 @@
 
     $obj->setColors(array('reserved' => 'AAAAAA', 'free' => '00FF00', 'used' => 'FF0000'));
 
-    $obj->setTitle('Free space ('.$obj->getArg('plugin_instance').')')->setVertical('Bytes')->setFormat('%5.1lf%sB');
+    $obj->setTitle('Free space ('.$obj->getArg('plugin_instance').')');
+    $obj->setVertical('Bytes');
+    $obj->setFormat('%5.1lf%sB');
 
     $graphs[$config['plugin']][] = $obj->rrd_graph();
