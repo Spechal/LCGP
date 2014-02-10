@@ -40,3 +40,15 @@ body {
     background-color: #ECF0F1;
     color: #000000;
 }
+
+.alert-danger-custom {
+    color: #b94a48 !important;
+    background-color: #f2dede !important;
+    border-color: #eed3d7 !important;
+}
+
+.alert-warning-custom {
+    color: #c09853 !important;
+    background-color: #fcf8e3 !important;
+    border-color: #fbeed5 !important;
+}

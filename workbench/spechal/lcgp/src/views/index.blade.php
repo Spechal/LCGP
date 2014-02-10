@@ -23,9 +23,9 @@
     @foreach($hosts as $host)
         <tr class="host">
             <td><a href="/collectd/plugins/{{ $host['name'] }}">{{ $host['name'] }}</a></td>
-            <td class="@if($host['short'] > $host['cores']) alert-danger @elseif($host['short'] > $host['cores']/2) alert-warning @endif">{{ round($host['short'], 2) }}</td>
-            <td class="@if($host['mid'] > $host['cores']) alert-danger @elseif($host['short'] > $host['cores']/2) alert-warning @endif">{{ round($host['mid'], 2) }}</td>
-            <td class="@if($host['long'] > $host['cores']) alert-danger @elseif($host['short'] > $host['cores']/2) alert-warning @endif">{{ round($host['long'], 2) }}</td>
+            <td class="@if($host['short'] > $host['cores']) alert-danger-custom @elseif($host['short'] > $host['cores']/2) alert-warning-custom @endif">{{ round($host['short'], 2) }}</td>
+            <td class="@if($host['mid'] > $host['cores']) alert-danger-custom @elseif($host['short'] > $host['cores']/2) alert-warning-custom @endif">{{ round($host['mid'], 2) }}</td>
+            <td class="@if($host['long'] > $host['cores']) alert-danger-custom @elseif($host['short'] > $host['cores']/2) alert-warning-custom @endif">{{ round($host['long'], 2) }}</td>
         </tr>
     @endforeach
     </tbody>
