@@ -44,7 +44,7 @@
 @stop
 
 @section('styles')
-{{ HTML::style('assets/css/bootstrap-datetimepicker.min.css', array('media' => 'screen')) }}
+{{ HTML::style('packages/spechal/lcgp/css/bootstrap-datetimepicker.min.css', array('media' => 'screen')) }}
 @stop
 
 @section('scripts')
@@ -59,7 +59,7 @@
 {{ HTML::script('packages/spechal/lcgp/js/RrdDataFile.js') }}
 {{ HTML::script('packages/spechal/lcgp/js/RrdCmdLine.js') }}
 {{ HTML::script('packages/spechal/lcgp/js/CGP.js') }}
-{{ HTML::script('assets/js/bootstrap-datetimepicker.min.js') }}
+{{ HTML::script('packages/spechal/lcgp/js/bootstrap-datetimepicker.min.js') }}
 <script type="text/javascript">
     <!--
     $(function(){
