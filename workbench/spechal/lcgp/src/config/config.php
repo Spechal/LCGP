@@ -52,12 +52,12 @@
                 'krang-mysql-master',
                 'krang-mysql-slave',
                 'krang-texis-master',
-                'krang-texis-query'
+                'krang-texis-query',
             ),
             'SOLR' => array(
                 'solr-search1-prod',
                 'solr-search2-prod',
-                'solr-indexer-prod'
+                'solr-indexer-prod',
             ),
             'VBB-WP' => array(
                 'vbbwpweb01.pme.penton.com',
@@ -70,7 +70,23 @@
                 // old but current boxes
                 'neoweb01-wp-vbb',
                 'neoweb02-wp-vbb',
-                'neoweb03-wp-vbb'
+                'neoweb03-wp-vbb',
+            ),
+            'GlusterFS' => array(
+                // production
+                'glusterfs1.pme.penton.com',
+                'glusterfs2.pme.penton.com',
+                'glusterfs3.pme.penton.com',
+                // staging
+            ),
+            'NEXT' => array(
+                'nextacccache01.pme.penton.com',
+                'nextacccache02.pme.penton.com',
+                'nextaccdb01.pme.penton.com',
+                'nextaccweb01.pme.penton.com',
+                'nextaccweb02.pme.penton.com',
+                'nextaccweb03.pme.penton.com',
+                'nextaccweb04.pme.penton.com',
             )
         )
     );
