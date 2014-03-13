@@ -13,7 +13,9 @@
 
 @if(count($groups))
 @foreach($groups as $name => $group)
-<a href="#{{ $name }}">{{ $name }}</a>
+<ul class="nav nav-pills">
+    <li><a href="#{{ $name }}">{{ $name }}</a></li>
+</ul>
 @endforeach
 @endif
 
