@@ -87,6 +87,14 @@
                 'nextaccweb02.pme.penton.com',
                 'nextaccweb03.pme.penton.com',
                 'nextaccweb04.pme.penton.com',
+            ),
+            'ENEWSPRO' => array(
+                'enewspro-memcached1',
+                'enewspro-memcached2',
+                'enewspro-neomysql10',
+                'enewspro-neomysql11',
+                'enewspro-web1',
+                'enewspro-web2'
             )
         )
     );
