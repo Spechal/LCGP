@@ -7,7 +7,9 @@
         public function getIndex(){
             $collectd = new Collectd(\Config::get('lcgp::collectd.datadir'));
             $names = $collectd->hosts();
-            $hosts = array();
+            $host_groups = new Collectd(\Config::get('lcgp::host_groups'));
+            $groups = array(); // group array to display
+            $hosts = array(); // hosts array to display
             foreach($names as $host){
                 $hosts[$host] = array();
                 $hosts[$host]['name'] = $host;
@@ -16,9 +18,16 @@
                 $hosts[$host]['short'] = $data['ds[shortterm].last_ds'];
                 $hosts[$host]['mid'] = $data['ds[midterm].last_ds'];
                 $hosts[$host]['long'] = $data['ds[longterm].last_ds'];
+                // groupings
+                foreach($host_groups as $name => $hosts){
+                    if(in_array($host, $hosts)){
+                        $groups[$name][] = $host;
+                        unset($hosts[$host]);
+                    }
+                }
             }
 
-            return \View::make('lcgp::index')->with('hosts', $hosts);
+            return \View::make('lcgp::index')->with(array('groups' => $groups, 'hosts' => $hosts));
         }
 
         public function getHostPlugins($host){
