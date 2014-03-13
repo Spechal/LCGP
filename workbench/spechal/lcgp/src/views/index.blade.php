@@ -11,11 +11,17 @@
 </div>
 <div id="filter-count"></div>
 
+@if(count($groups))
+@foreach($groups as $name => $group)
+<a id="{{ $name }}">{{ $name }}</a>
+@endforeach
+@endif
+
 <div id="searchable">
 
 @if(count($groups))
 @foreach($groups as $name => $group)
-<h4>{{ $name }}</h4>
+<h4><a href="#{{ $name }}">{{ $name }}</a></h4>
 <table class="table table-striped table-bordered">
     <thead>
     <tr id="host-header">
