@@ -15,7 +15,7 @@
 
 @if(count($groups))
 @foreach($groups as $name => $group)
-<h3>{{ $name }}</h3>
+<h4>{{ $name }}</h4>
 <table class="table table-striped table-bordered">
     <thead>
     <tr id="host-header">

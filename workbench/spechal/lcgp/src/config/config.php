@@ -26,7 +26,17 @@
                 'piscesweb16',
                 'piscesweb17',
                 'piscesweb18',
-                'piscesweb19'
+                'piscesweb19',
+                'piscesmariadb01',
+                'piscesmariadb02',
+                'piscesmariadb03',
+                'piscesmariadb04',
+                'pisces-varnish-prod1',
+                'pisces-varnish-prod2',
+                'pisces-varnish-prod3',
+                'pisces-memcached-prod',
+                'pisces-memcached-prod2',
+                'pisces-memcached-prod3',
             ),
             'KRANG' => array(
                 'krang-be1',
