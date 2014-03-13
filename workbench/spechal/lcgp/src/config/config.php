@@ -17,6 +17,7 @@
         ),
         'host_groups' => array(
             'PISCES' => array(
+                // production
                 'piscesweb10',
                 'piscesweb11',
                 'piscesweb12',
@@ -27,6 +28,8 @@
                 'piscesweb17',
                 'piscesweb18',
                 'piscesweb19',
+                'piscesweb20',
+                'pisceswebnas',
                 'piscesmariadb01',
                 'piscesmariadb02',
                 'piscesmariadb03',
@@ -37,6 +40,7 @@
                 'pisces-memcached-prod',
                 'pisces-memcached-prod2',
                 'pisces-memcached-prod3',
+                // staging
             ),
             'KRANG' => array(
                 'krang-be1',
@@ -49,6 +53,24 @@
                 'krang-mysql-slave',
                 'krang-texis-master',
                 'krang-texis-query'
+            ),
+            'SOLR' => array(
+                'solr-search1-prod',
+                'solr-search2-prod',
+                'solr-indexer-prod'
+            ),
+            'VBB-WP' => array(
+                'vbbwpweb01.pme.penton.com',
+                'vbbwpweb02.pme.penton.com',
+                'vbbwpweb03.pme.penton.com',
+                'vbbwpvarnish01.pme.penton.com',
+                'vbbwpvarnish02.pme.penton.com',
+                'neomysql01-wp-vbb',
+                'neomysql02-wp-vbb',
+                // old but current boxes
+                'neoweb01-wp-vbb',
+                'neoweb02-wp-vbb',
+                'neoweb03-wp-vbb'
             )
         )
     );
