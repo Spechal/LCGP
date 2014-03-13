@@ -11,10 +11,12 @@
 </div>
 <div id="filter-count"></div>
 
+<div id="searchable">
+
 @if(count($groups))
-@foreach($groups as $group)
-<h3>{{ $group }}</h3>
-<table class="table table-striped table-bordered" id="searchable">
+@foreach($groups as $name => $group)
+<h3>{{ $name }}</h3>
+<table class="table table-striped table-bordered">
     <thead>
     <tr id="host-header">
         <th>Host Name</th>
@@ -37,7 +39,7 @@
 @endforeach
 @endif
 
-<table class="table table-striped table-bordered" id="searchable">
+<table class="table table-striped table-bordered">
     <thead>
         <tr id="host-header">
             <th>Host Name</th>
@@ -48,13 +50,16 @@
     </thead>
     <tbody>
     @foreach($hosts as $host)
-        <tr class="host">
-            <td><a href="/collectd/plugins/{{ $host['name'] }}">{{ $host['name'] }}</a></td>
-            <td class="@if($host['short'] > $host['cores']) alert-danger-custom @elseif($host['short'] > $host['cores']/2) alert-warning-custom @endif">{{ round($host['short'], 2) }}</td>
-            <td class="@if($host['mid'] > $host['cores']) alert-danger-custom @elseif($host['short'] > $host['cores']/2) alert-warning-custom @endif">{{ round($host['mid'], 2) }}</td>
-            <td class="@if($host['long'] > $host['cores']) alert-danger-custom @elseif($host['short'] > $host['cores']/2) alert-warning-custom @endif">{{ round($host['long'], 2) }}</td>
-        </tr>
+    <tr class="host">
+        <td><a href="/collectd/plugins/{{ $host['name'] }}">{{ $host['name'] }}</a></td>
+        <td class="@if($host['short'] > $host['cores']) alert-danger-custom @elseif($host['short'] > $host['cores']/2) alert-warning-custom @endif">{{ round($host['short'], 2) }}</td>
+        <td class="@if($host['mid'] > $host['cores']) alert-danger-custom @elseif($host['short'] > $host['cores']/2) alert-warning-custom @endif">{{ round($host['mid'], 2) }}</td>
+        <td class="@if($host['long'] > $host['cores']) alert-danger-custom @elseif($host['short'] > $host['cores']/2) alert-warning-custom @endif">{{ round($host['long'], 2) }}</td>
+    </tr>
     @endforeach
     </tbody>
 </table>
+
+</div>
+
 @stop
