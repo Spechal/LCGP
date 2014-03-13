@@ -12,13 +12,13 @@
 <div id="filter-count"></div>
 
 @if(count($groups))
-@foreach($groups as $name => $group)
 <div>
     <ul class="nav nav-pills">
+        @foreach($groups as $name => $group)
         <li><a href="#{{ $name }}">{{ $name }}</a></li>
+        @endforeach
     </ul>
 </div>
-@endforeach
 @endif
 
 <div id="searchable">
