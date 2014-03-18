@@ -29,13 +29,13 @@
 <div>
     <ul class="nav nav-pills">
     @foreach($plugins as $plugin)
-        <li><a href="/collectd/graph/{{ $host }}/{{ $plugin }}">{{ $plugin }}</a></li>
+        <li><a href="#{{ $plugin }}">{{ $plugin }}</a></li>
     @endforeach
     </ul>
 </div>
 <div class="container">
     @foreach($plugins as $plugin)
-        <h4>{{ ucfirst($plugin) }} graphs for {{ $host }}</h4>
+        <h4><a name="{{ $plugin }}">{{ ucfirst($plugin) }} graphs for {{ $host }}</a></h4>
         @foreach($graphs[$plugin] as $graph)
         {{ $graph }}
         @endforeach
