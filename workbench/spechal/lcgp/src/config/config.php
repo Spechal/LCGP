@@ -29,6 +29,8 @@
                 'piscesweb18',
                 'piscesweb19',
                 'piscesweb20',
+                'piscesweb21',
+                'piscesweb22',
                 'pisceswebnas',
                 'piscesmariadb01',
                 'piscesmariadb02',
