@@ -38,6 +38,8 @@
                 'piscesmariadb04.pme.penton.com',
                 'piscesmariadb05.pme.penton.com',
                 'piscesmariadb06.pme.penton.com',
+                'piscesmariadb07.pme.penton.com',
+                'piscesmariadb08.pme.penton.com',
                 'pisces-varnish-prod1',
                 'pisces-varnish-prod2',
                 'pisces-varnish-prod3',
