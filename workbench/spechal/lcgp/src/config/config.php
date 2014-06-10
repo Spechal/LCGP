@@ -43,9 +43,13 @@
                 'pisces-varnish-prod1',
                 'pisces-varnish-prod2',
                 'pisces-varnish-prod3',
+                'piscesprodvarnish4.pme.penton.com',
+                'piscesprodvarnish5.pme.penton.com',
                 'pisces-memcached-prod',
                 'pisces-memcached-prod2',
                 'pisces-memcached-prod3',
+                'piscesprodmemcached4.pme.penton.com',
+                'piscesprodmemcached5.pme.penton.com',
                 // staging
             ),
             'KRANG' => array(
